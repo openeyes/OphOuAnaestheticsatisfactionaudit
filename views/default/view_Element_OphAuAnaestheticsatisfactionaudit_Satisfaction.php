@@ -13,7 +13,7 @@
 		</tr>
 		<tr>
 			<td width="30%"><?php echo CHtml::encode($element->getAttributeLabel('vomited'))?></td>
-			<td><span class="big"><?php $element->vomited ? 'Yes' : 'No'?></span></td>
+			<td><span class="big"><?php echo $element->vomited ? 'Yes' : 'No'?></span></td>
 		</tr>
 	</tbody>
 </table>
