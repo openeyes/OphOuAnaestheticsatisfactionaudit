@@ -5,7 +5,7 @@
 	<tbody>
 		<tr>
 			<td width="30%"><?php echo CHtml::encode($element->getAttributeLabel('anaesthetist_id'))?></td>
-			<td><span class="big"><?php echo $element->anaesthetist ? $element->anaesthetist->fullNameAndTitle : 'None'?></span></td>
+			<td><span class="big"><?php if ($element->anaesthetist) { echo $element->anaesthetist->fullNameAndTitle; } elseif ($element->non_consultant) { echo $element::NONCONSULTANT_DISP; } else { echo $element::NOANAESTHETIST_DISP; } ?></span></td>
 		</tr>
 	</tbody>
 </table>

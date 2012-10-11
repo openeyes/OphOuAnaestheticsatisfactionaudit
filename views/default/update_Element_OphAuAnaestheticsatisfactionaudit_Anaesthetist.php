@@ -19,5 +19,5 @@
 <div class="<?php echo $element->elementType->class_name?>">
 	<h4 class="elementTypeName"><?php  echo $element->elementType->name; ?></h4>
 
-	<?php echo $form->dropDownList($element, 'anaesthetist_id', CHtml::listData($this->anaesthetistList,'id','fullNameAndTitle'),array('empty'=>'- Please select -'))?>
+	<?php echo $form->dropDownList($element, 'anaesthetist_select', CHtml::listData($element->anaesthetistSelectList(),'id','text'),array('empty'=>'- Please select -'))?>
 </div>
