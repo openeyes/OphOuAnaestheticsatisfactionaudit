@@ -17,11 +17,11 @@
  */
 
 /**
- * This is the model class for table "et_ophauanaestheticsataudit_vitalsigns".
+ * This is the model class for table "element_type_respiratory_rate".
  *
  * The followings are the available columns in table:
  * @property string $id
- * @property integer $event_id
+ * @property string $name
  *
  * The followings are the available model relations:
  *
@@ -30,19 +30,10 @@
  * @property Event $event
  * @property User $user
  * @property User $usermodified
- * @property Element_OphAuAnaestheticsatisfactionaudit_VitalSigns_RespiratoryRate respiratory_rate
- * @property Element_OphAuAnaestheticsatisfactionaudit_VitalSigns_OxygenSaturation oxygen_saturation
- * @property Element_OphAuAnaestheticsatisfactionaudit_VitalSigns_Systolic systolic
- * @property Element_OphAuAnaestheticsatisfactionaudit_VitalSigns_BodyTemp body_temp
- * @property Element_OphAuAnaestheticsatisfactionaudit_VitalSigns_HeartRate heart_rate
- * @property Element_OphAuAnaestheticsatisfactionaudit_VitalSigns_ConsciousLvl conscious_lvl
- * 
  */
 
-class Element_OphAuAnaestheticsatisfactionaudit_VitalSigns extends BaseEventTypeElement
+class Element_OphAuAnaestheticsatisfactionaudit_VitalSigns_RespiratoryRate extends BaseActiveRecord
 {
-	public $service;
-
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @return the static model class
@@ -57,7 +48,7 @@ class Element_OphAuAnaestheticsatisfactionaudit_VitalSigns extends BaseEventType
 	 */
 	public function tableName()
 	{
-		return 'et_ophauanaestheticsataudit_vitalsigns';
+		return 'et_ophauanaestheticsataudit_vitalsigns_respiratory_rate';
 	}
 
 	/**
@@ -68,14 +59,13 @@ class Element_OphAuAnaestheticsatisfactionaudit_VitalSigns extends BaseEventType
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('event_id, respiratory_rate_id, oxygen_saturation_id, systolic_id, body_temp_id, heart_rate_id, conscious_lvl_id', 'safe'),
-			array('respiratory_rate_id, oxygen_saturation_id, systolic_id, body_temp_id, heart_rate_id, conscious_lvl_id', 'required'),
+			array('name', 'safe'),
+			array('name', 'required'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, event_id, respiratory_rate_id, oxygen_saturation_id, systolic_id, body_temp_id, heart_rate_id, conscious_lvl_id', 'safe', 'on' => 'search'),
+			array('id, name', 'safe', 'on' => 'search'),
 		);
 	}
-
 	
 	/**
 	 * @return array relational rules.
@@ -85,17 +75,8 @@ class Element_OphAuAnaestheticsatisfactionaudit_VitalSigns extends BaseEventType
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'element_type' => array(self::HAS_ONE, 'ElementType', 'id','on' => "element_type.class_name='".get_class($this)."'"),
-			'eventType' => array(self::BELONGS_TO, 'EventType', 'event_type_id'),
-			'event' => array(self::BELONGS_TO, 'Event', 'event_id'),
 			'user' => array(self::BELONGS_TO, 'User', 'created_user_id'),
 			'usermodified' => array(self::BELONGS_TO, 'User', 'last_modified_user_id'),
-			'respiratory_rate' => array(self::BELONGS_TO, 'Element_OphAuAnaestheticsatisfactionaudit_VitalSigns_RespiratoryRate', 'respiratory_rate_id'),
-			'oxygen_saturation' => array(self::BELONGS_TO, 'Element_OphAuAnaestheticsatisfactionaudit_VitalSigns_OxygenSaturation', 'oxygen_saturation_id'),
-			'systolic' => array(self::BELONGS_TO, 'Element_OphAuAnaestheticsatisfactionaudit_VitalSigns_Systolic', 'systolic_id'),
-			'body_temp' => array(self::BELONGS_TO, 'Element_OphAuAnaestheticsatisfactionaudit_VitalSigns_BodyTemp', 'body_temp_id'),
-			'heart_rate' => array(self::BELONGS_TO, 'Element_OphAuAnaestheticsatisfactionaudit_VitalSigns_HeartRate', 'heart_rate_id'),
-			'conscious_lvl' => array(self::BELONGS_TO, 'Element_OphAuAnaestheticsatisfactionaudit_VitalSigns_ConsciousLvl', 'conscious_lvl_id'),
 		);
 	}
 
@@ -106,13 +87,7 @@ class Element_OphAuAnaestheticsatisfactionaudit_VitalSigns extends BaseEventType
 	{
 		return array(
 			'id' => 'ID',
-			'event_id' => 'Event',
-			'respiratory_rate_id' => 'Respiratory Rate',
-			'oxygen_saturation_id' => 'Oxygen Saturation',
-			'systolic_id' => 'Systolic Blood Pressure',
-			'body_temp_id' => 'Body Temperature',
-			'heart_rate_id' => 'Heart Rate',
-			'conscious_lvl_id' => 'Conscious Level AVPU',
+			'name' => 'Name',
 		);
 	}
 
@@ -128,33 +103,11 @@ class Element_OphAuAnaestheticsatisfactionaudit_VitalSigns extends BaseEventType
 		$criteria = new CDbCriteria;
 
 		$criteria->compare('id', $this->id, true);
-		$criteria->compare('event_id', $this->event_id, true);
+		$criteria->compare('name', $this->name, true);
 
 		return new CActiveDataProvider(get_class($this), array(
 				'criteria' => $criteria,
 			));
-	}
-	
-	/**
-	 * calculates the MEW score from the scores of the current vital sign values
-	 * 
-	 * @return integer or boolean (false when vital signs not set)
-	 */
-	public function calculateMEW()
-	{
-		if (!$this->respiratory_rate) {
-			return false;
-		}
-		$score = 0;
-		$score += $this->respiratory_rate->score;
-		$score += $this->oxygen_saturation->score;
-		$score += $this->systolic->score;
-		$score += $this->body_temp->score;
-		$score += $this->heart_rate->score;
-		$score += $this->conscious_lvl->score;
-		
-		return $score;
-		
 	}
 
 	/**
@@ -162,10 +115,7 @@ class Element_OphAuAnaestheticsatisfactionaudit_VitalSigns extends BaseEventType
 	 */
 	public function setDefaultOptions()
 	{
-
 	}
-
-
 
 	protected function beforeSave()
 	{
@@ -174,7 +124,6 @@ class Element_OphAuAnaestheticsatisfactionaudit_VitalSigns extends BaseEventType
 
 	protected function afterSave()
 	{
-
 		return parent::afterSave();
 	}
 

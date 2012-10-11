@@ -41,6 +41,8 @@ class OphAuAnaestheticsatisfactionauditModule extends BaseEventTypeModule
 		));
 		
 		$this->moduleShortSuffix = "anaestheticsataudit";
+		
+		parent::init();
 	}
 
 	public function beforeControllerAction($controller, $action) {

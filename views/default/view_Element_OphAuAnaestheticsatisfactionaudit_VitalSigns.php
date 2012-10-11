@@ -4,24 +4,33 @@
 <table class="subtleWhite normalText">
 	<tbody>
 		<tr>
-			<td width="30%"><?php echo CHtml::encode($element->getAttributeLabel('respiratory_rate'))?></td>
-			<td><span class="big"><?php echo $element->respiratory_rate?></span></td>
+			<td width="30%"><?php echo CHtml::encode($element->getAttributeLabel('respiratory_rate_id'))?></td>
+			<td><span class="big"><?php echo $element->respiratory_rate ? $element->respiratory_rate->name : 'None'?></span></td>
+		</tr>
+				<tr>
+			<td width="30%"><?php echo CHtml::encode($element->getAttributeLabel('oxygen_saturation_id'))?></td>
+			<td><span class="big"><?php echo $element->oxygen_saturation ? $element->oxygen_saturation->name : 'None'?></span></td>
+		</tr>
+				<tr>
+			<td width="30%"><?php echo CHtml::encode($element->getAttributeLabel('systolic_id'))?></td>
+			<td><span class="big"><?php echo $element->systolic ? $element->systolic->name : 'None'?></span></td>
+		</tr>
+				<tr>
+			<td width="30%"><?php echo CHtml::encode($element->getAttributeLabel('body_temp_id'))?></td>
+			<td><span class="big"><?php echo $element->body_temp ? $element->body_temp->name : 'None'?></span></td>
+		</tr>
+				<tr>
+			<td width="30%"><?php echo CHtml::encode($element->getAttributeLabel('heart_rate_id'))?></td>
+			<td><span class="big"><?php echo $element->heart_rate ? $element->heart_rate->name : 'None'?></span></td>
+		</tr>
+				<tr>
+			<td width="30%"><?php echo CHtml::encode($element->getAttributeLabel('conscious_lvl_id'))?></td>
+			<td><span class="big"><?php echo $element->conscious_lvl ? $element->conscious_lvl->name : 'None'?></span></td>
 		</tr>
 		<tr>
-			<td width="30%"><?php echo CHtml::encode($element->getAttributeLabel('oxygen_saturation'))?></td>
-			<td><span class="big"><?php echo $element->oxygen_saturation?></span></td>
-		</tr>
-		<tr>
-			<td width="30%"><?php echo CHtml::encode($element->getAttributeLabel('systolic_blood_pressure'))?></td>
-			<td><span class="big"><?php echo $element->systolic_blood_pressure?></span></td>
-		</tr>
-		<tr>
-			<td width="30%"><?php echo CHtml::encode($element->getAttributeLabel('body_temperature'))?></td>
-			<td><span class="big"><?php echo $element->body_temperature?></span></td>
-		</tr>
-		<tr>
-			<td width="30%"><?php echo CHtml::encode($element->getAttributeLabel('heart_rate'))?></td>
-			<td><span class="big"><?php echo $element->heart_rate?></span></td>
+			<td width="30%">Calculated MEWS</td>
+			<td><span class="big"><?php echo $element->calculateMEW() ? $element->calculateMEW() : 'None'?></span></td>
 		</tr>
 	</tbody>
+
 </table>
