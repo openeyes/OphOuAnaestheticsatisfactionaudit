@@ -27,7 +27,7 @@
 			<td width="30%"><?php echo CHtml::encode($element->getAttributeLabel('conscious_lvl_id'))?></td>
 			<td><span class="big"><?php echo $element->conscious_lvl ? $element->conscious_lvl->name : 'None'?></span></td>
 		</tr>
-		<tr>
+		<tr <?php if ($element->calculateMEW() > 3) {?>class="highMEWS"<?php } ?>>
 			<td width="30%">Calculated MEWS</td>
 			<td><span class="big"><?php echo $element->calculateMEW() ? $element->calculateMEW() : 'None'?></span></td>
 		</tr>

@@ -16,7 +16,7 @@
  * @license http://www.gnu.org/licenses/gpl-3.0.html The GNU General Public License V3.0
  */
  ?>
-<div class="<?php echo $element->elementType->class_name?>">
+<div class="<?php echo $element->elementType->class_name?>" style="clear: both;">
 	<h4 class="elementTypeName"><?php  echo $element->elementType->name; ?></h4>
 
 	<?php echo $form->dropDownList($element, 'score_id', CHtml::listData(Element_OphAuAnaestheticsatisfactionaudit_RamsayScore_Score::model()->findAll(array('order'=> 'display_order asc')),'id','name'),array('empty'=>'- Please select -'))?>

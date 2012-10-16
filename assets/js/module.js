@@ -1,4 +1,25 @@
 
+var scoreData;
+var scoreElements = Array('respiratory_rate', 'oxygen_saturation', 'systolic', 'body_temp', 'heart_rate', 'conscious_lvl');
+
+function calculateScore() {
+	score = 0;
+	for (var i = 0; i < scoreElements.length; i++) {
+		el = scoreElements[i];
+		selected_key = parseInt($('#Element_OphAuAnaestheticsatisfactionaudit_VitalSigns_' + el + '_id').val());
+		if (scoreData[el][selected_key] !== undefined) {
+			score += parseInt(scoreData[el][selected_key]);
+		}
+	}
+	
+	if (score > 3) {
+		$('#liveMEWS').text(score).parent().addClass('highMEWS').show();
+	}
+	else {
+		$('#liveMEWS').text(score).parent().removeClass('highMEWS').show();
+	}
+}
+
 /* Module-specific javascript can be placed here */
 
 $(document).ready(function() {
@@ -59,6 +80,10 @@ $(document).ready(function() {
 				el.text(currentText+', '+newText);
 			}
 		}
+	});
+	
+	$("div.Element_OphAuAnaestheticsatisfactionaudit_VitalSigns select").live('change', function () {
+		calculateScore();
 	});
 });
 

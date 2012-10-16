@@ -11,3 +11,23 @@ input.widgetSlider {
 input.widgetSlider#Element_OphAuAnaestheticsatisfactionaudit_Satisfaction_nausea {
 	width: 168px;
 }
+
+#liveMEWSContainer {
+	position: relative;
+	margin-left: 300px;
+	width: 300px;
+}
+#MEWS{
+	width: 233px;
+	margin: -150px 0px 0px 150px;
+	font-size: 1.8em;
+	padding: 3px;
+}
+
+#liveMEWS {
+	margin-left: 20px;
+}
+
+.highMEWS {
+	border: #f00 solid 3px !important;
+}
