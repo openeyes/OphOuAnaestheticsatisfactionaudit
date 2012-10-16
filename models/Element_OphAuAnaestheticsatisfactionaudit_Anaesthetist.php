@@ -41,6 +41,7 @@ class Element_OphAuAnaestheticsatisfactionaudit_Anaesthetist extends BaseEventTy
 	public $service;
 	public $anaesthetist_select;
 	
+	// form select and display values for exceptional anaesthetist values
 	const NONCONSULTANT = 'non';
 	const NONCONSULTANT_DISP = 'Non-consultant';
 	const NOANAESTHETIST = 'no';
@@ -48,6 +49,7 @@ class Element_OphAuAnaestheticsatisfactionaudit_Anaesthetist extends BaseEventTy
 	
 	public function afterFind() {
 		if ($this->id) {
+			// need to set the value on the anaesthetist_select for use in forms
 			if ($this->non_consultant) {
 				$this->anaesthetist_select = self::NONCONSULTANT;
 			}
@@ -60,6 +62,18 @@ class Element_OphAuAnaestheticsatisfactionaudit_Anaesthetist extends BaseEventTy
 		}
 	}
 	
+	/**
+	 * override to ensure support for custom attribute of anaesthetist_select
+	 * otherwise calls parent
+	 * 
+	 * @see CActiveRecord::hasAttribute()
+	 */
+	public function hasAttribute($name) {
+		if ($name == 'anaesthetist_select') {
+			return true;
+		}
+		return parent::hasAttribute($name);
+	}
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @return the static model class
@@ -85,11 +99,11 @@ class Element_OphAuAnaestheticsatisfactionaudit_Anaesthetist extends BaseEventTy
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('event_id, anaesthetist_id, ', 'safe'),
+			array('event_id, anaesthetist_id, anaesthetist_select', 'safe'),
 			array('anaesthetist_select', 'required'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, event_id, anaesthetist_id, ', 'safe', 'on' => 'search'),
+			//array('id, event_id, anaesthetist_id, ', 'safe', 'on' => 'search'),
 		);
 	}
 	
@@ -132,6 +146,7 @@ class Element_OphAuAnaestheticsatisfactionaudit_Anaesthetist extends BaseEventTy
 			'id' => 'ID',
 			'event_id' => 'Event',
 			'anaesthetist_id' => 'Anaesthetist',
+			'anaesthetist_select' => 'Anaesthetist'
 		);
 	}
 
@@ -162,7 +177,7 @@ class Element_OphAuAnaestheticsatisfactionaudit_Anaesthetist extends BaseEventTy
 	public function setDefaultOptions()
 	{
 		if (Yii::app()->getController()->getAction()->id == 'create') {
-				}
+		}
 	}
 
 
