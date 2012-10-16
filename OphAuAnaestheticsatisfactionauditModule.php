@@ -18,7 +18,7 @@
  */
 
 /**
- * This is the module class for $this->moduleSuffix
+ * This is the module class for OphAuAnaestheticsatisfactionaudit
  *
  * The followings are the available columns in table:
  * @property string $moduleShortSuffix
