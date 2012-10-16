@@ -31,3 +31,18 @@ input.widgetSlider#Element_OphAuAnaestheticsatisfactionaudit_Satisfaction_nausea
 .highMEWS {
 	border: #f00 solid 3px !important;
 }
+
+.score_1 {
+	background-color: #4febc9;
+	padding: 2px;
+}
+
+.score_2 {
+	background-color: #fff49c;
+	padding: 2px;
+}
+
+.score_3 {
+	background-color: #ff7878;
+	padding: 2px;
+}
