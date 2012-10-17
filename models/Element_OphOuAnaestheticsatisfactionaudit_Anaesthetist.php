@@ -17,12 +17,14 @@
  */
 
 /**
- * This is the model class for table "et_ophauanaestheticsataudit_ramsayscore".
+ * This is the model class for table "et_ophauanaestheticsataudit_anaesthetis".
  *
  * The followings are the available columns in table:
  * @property string $id
  * @property integer $event_id
- * @property integer $score_id
+ * @property integer $anaesthetist_id
+ * @property boolean $non_consultant
+ * @property boolean $no_anaesthetist
  *
  * The followings are the available model relations:
  *
@@ -31,13 +33,47 @@
  * @property Event $event
  * @property User $user
  * @property User $usermodified
- * @property Element_OphAuAnaestheticsatisfactionaudit_RamsayScore_Score $score
+ * @property User $anaesthetist
  */
 
-class Element_OphAuAnaestheticsatisfactionaudit_RamsayScore extends BaseEventTypeElement
+class Element_OphOuAnaestheticsatisfactionaudit_Anaesthetist extends BaseEventTypeElement
 {
 	public $service;
-
+	public $anaesthetist_select;
+	
+	// form select and display values for exceptional anaesthetist values
+	const NONCONSULTANT = 'non';
+	const NONCONSULTANT_DISP = 'Non-consultant';
+	const NOANAESTHETIST = 'no';
+	const NOANAESTHETIST_DISP = 'No anaesthetist';
+	
+	public function afterFind() {
+		if ($this->id) {
+			// need to set the value on the anaesthetist_select for use in forms
+			if ($this->non_consultant) {
+				$this->anaesthetist_select = self::NONCONSULTANT;
+			}
+			elseif ($this->no_anaesthetist) {
+				$this->anaesthetist_select = self::NOANAESTHETIST;
+			}
+			else {
+				$this->anaesthetist_select = $this->anaesthetist_id;
+			}
+		}
+	}
+	
+	/**
+	 * override to ensure support for custom attribute of anaesthetist_select
+	 * otherwise calls parent
+	 * 
+	 * @see CActiveRecord::hasAttribute()
+	 */
+	public function hasAttribute($name) {
+		if ($name == 'anaesthetist_select') {
+			return true;
+		}
+		return parent::hasAttribute($name);
+	}
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @return the static model class
@@ -52,7 +88,7 @@ class Element_OphAuAnaestheticsatisfactionaudit_RamsayScore extends BaseEventTyp
 	 */
 	public function tableName()
 	{
-		return 'et_ophauanaestheticsataudit_ramsayscore';
+		return 'et_ophouanaestheticsataudit_anaesthetis';
 	}
 
 	/**
@@ -63,11 +99,11 @@ class Element_OphAuAnaestheticsatisfactionaudit_RamsayScore extends BaseEventTyp
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('event_id, score_id, ', 'safe'),
-			array('score_id, ', 'required'),
+			array('event_id, anaesthetist_id, anaesthetist_select', 'safe'),
+			array('anaesthetist_select', 'required'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, event_id, score_id, ', 'safe', 'on' => 'search'),
+			//array('id, event_id, anaesthetist_id, ', 'safe', 'on' => 'search'),
 		);
 	}
 	
@@ -84,10 +120,23 @@ class Element_OphAuAnaestheticsatisfactionaudit_RamsayScore extends BaseEventTyp
 			'event' => array(self::BELONGS_TO, 'Event', 'event_id'),
 			'user' => array(self::BELONGS_TO, 'User', 'created_user_id'),
 			'usermodified' => array(self::BELONGS_TO, 'User', 'last_modified_user_id'),
-			'score' => array(self::BELONGS_TO, 'Element_OphAuAnaestheticsatisfactionaudit_RamsayScore_Score', 'score_id'),
+			'anaesthetist' => array(self::BELONGS_TO, 'User', 'anaesthetist_id'),
 		);
 	}
 
+	public function anaesthetistSelectList() {
+		$anaesthetistList = array(
+				array('id' => self::NONCONSULTANT, 'text' => self::NONCONSULTANT_DISP),
+				array('id' => self::NOANAESTHETIST, 'text' => self::NOANAESTHETIST_DISP),
+		);
+		
+		foreach (OphOuAnaestheticsatisfactionaudit_AnaesthetistUser::model()->findAll() as $anaesthetist) {
+			$anaesthetistList[] = array('id' => $anaesthetist->user->id, 'text' => $anaesthetist->user->fullNameAndTitle);
+		}
+		
+		return $anaesthetistList;
+	}
+	
 	/**
 	 * @return array customized attribute labels (name=>label)
 	 */
@@ -96,7 +145,8 @@ class Element_OphAuAnaestheticsatisfactionaudit_RamsayScore extends BaseEventTyp
 		return array(
 			'id' => 'ID',
 			'event_id' => 'Event',
-'score_id' => 'Score',
+			'anaesthetist_id' => 'Anaesthetist',
+			'anaesthetist_select' => 'Anaesthetist'
 		);
 	}
 
@@ -114,7 +164,7 @@ class Element_OphAuAnaestheticsatisfactionaudit_RamsayScore extends BaseEventTyp
 		$criteria->compare('id', $this->id, true);
 		$criteria->compare('event_id', $this->event_id, true);
 
-$criteria->compare('score_id', $this->score_id);
+		$criteria->compare('anaesthetist_id', $this->anaesthetist_id);
 		
 		return new CActiveDataProvider(get_class($this), array(
 				'criteria' => $criteria,
@@ -127,13 +177,29 @@ $criteria->compare('score_id', $this->score_id);
 	public function setDefaultOptions()
 	{
 		if (Yii::app()->getController()->getAction()->id == 'create') {
-				}
+		}
 	}
 
 
 
 	protected function beforeSave()
 	{
+		if ($this->anaesthetist_select == self::NONCONSULTANT) {
+			$this->non_consultant = true;
+			$this->no_anaesthetist = false;
+			$this->anaesthetist_id = null;
+			
+		}
+		elseif ($this->anaesthetist_select == self::NOANAESTHETIST) {
+			$this->no_anaesthetist = true;
+			$this->non_consultant = false;
+			$this->anaesthetist_id = null;
+		}
+		else {
+			$this->anaesthetist_id = $this->anaesthetist_select;
+			$this->no_anaesthetist = false;
+			$this->non_consultant = false;
+		}
 		return parent::beforeSave();
 	}
 

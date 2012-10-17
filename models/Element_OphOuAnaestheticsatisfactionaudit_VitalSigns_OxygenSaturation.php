@@ -32,7 +32,7 @@
  * @property User $usermodified
  */
 
-class Element_OphAuAnaestheticsatisfactionaudit_VitalSigns_OxygenSaturation extends BaseActiveRecord
+class Element_OphOuAnaestheticsatisfactionaudit_VitalSigns_OxygenSaturation extends BaseActiveRecord
 {
 	/**
 	 * Returns the static model of the specified AR class.
@@ -48,7 +48,7 @@ class Element_OphAuAnaestheticsatisfactionaudit_VitalSigns_OxygenSaturation exte
 	 */
 	public function tableName()
 	{
-		return 'et_ophauanaestheticsataudit_vitalsigns_oxygen_saturation';
+		return 'et_ophouanaestheticsataudit_vitalsigns_oxygen_saturation';
 	}
 
 	/**

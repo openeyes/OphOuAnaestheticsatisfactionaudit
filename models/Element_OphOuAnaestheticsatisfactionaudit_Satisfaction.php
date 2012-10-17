@@ -17,11 +17,14 @@
  */
 
 /**
- * This is the model class for table "et_auophanaestheticsataudit_notes_ready_for_discharge".
+ * This is the model class for table "et_ophauanaestheticsataudit_satisfactio".
  *
  * The followings are the available columns in table:
  * @property string $id
- * @property string $name
+ * @property integer $event_id
+ * @property integer $pain
+ * @property integer $nausea
+ * @property integer $vomited
  *
  * The followings are the available model relations:
  *
@@ -32,8 +35,10 @@
  * @property User $usermodified
  */
 
-class Element_OphAuAnaestheticsatisfactionaudit_Notes_ReadyForDischarge extends BaseActiveRecord
+class Element_OphOuAnaestheticsatisfactionaudit_Satisfaction extends BaseEventTypeElement
 {
+	public $service;
+
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @return the static model class
@@ -48,7 +53,7 @@ class Element_OphAuAnaestheticsatisfactionaudit_Notes_ReadyForDischarge extends 
 	 */
 	public function tableName()
 	{
-		return 'et_auophanaestheticsataudit_notes_ready_for_discharge';
+		return 'et_ophouanaestheticsataudit_satisfactio';
 	}
 
 	/**
@@ -59,11 +64,11 @@ class Element_OphAuAnaestheticsatisfactionaudit_Notes_ReadyForDischarge extends 
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('name', 'safe'),
-			array('name', 'required'),
+			array('event_id, pain, nausea, vomited, ', 'safe'),
+			array('pain, nausea, vomited, ', 'required'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, name', 'safe', 'on' => 'search'),
+			array('id, event_id, pain, nausea, vomited, ', 'safe', 'on' => 'search'),
 		);
 	}
 	
@@ -90,7 +95,10 @@ class Element_OphAuAnaestheticsatisfactionaudit_Notes_ReadyForDischarge extends 
 	{
 		return array(
 			'id' => 'ID',
-			'name' => 'Name',
+			'event_id' => 'Event',
+			'pain' => 'Pain',
+			'nausea' => 'Nausea',
+			'vomited' => 'Vomited',
 		);
 	}
 
@@ -106,8 +114,11 @@ class Element_OphAuAnaestheticsatisfactionaudit_Notes_ReadyForDischarge extends 
 		$criteria = new CDbCriteria;
 
 		$criteria->compare('id', $this->id, true);
-		$criteria->compare('name', $this->name, true);
-
+		$criteria->compare('event_id', $this->event_id, true);
+		$criteria->compare('pain', $this->pain);
+		$criteria->compare('nausea', $this->nausea);
+		$criteria->compare('vomited', $this->vomited);
+		
 		return new CActiveDataProvider(get_class($this), array(
 				'criteria' => $criteria,
 			));
@@ -118,7 +129,13 @@ class Element_OphAuAnaestheticsatisfactionaudit_Notes_ReadyForDischarge extends 
 	 */
 	public function setDefaultOptions()
 	{
+		if (Yii::app()->getController()->getAction()->id == 'create') {
+			$this->pain = 0;
+			$this->nausea = 0;
+		}
 	}
+
+
 
 	protected function beforeSave()
 	{
@@ -127,6 +144,7 @@ class Element_OphAuAnaestheticsatisfactionaudit_Notes_ReadyForDischarge extends 
 
 	protected function afterSave()
 	{
+
 		return parent::afterSave();
 	}
 

@@ -15,7 +15,7 @@
  * @property User $lastModifiedUser
  * @property User $user
  */
-class OphAuAnaestheticsatisfactionaudit_AnaesthetistUser extends CActiveRecord
+class OphOuAnaestheticsatisfactionaudit_AnaesthetistUser extends CActiveRecord
 {
 	/**
 	 * Returns the static model of the specified AR class.
@@ -31,7 +31,7 @@ class OphAuAnaestheticsatisfactionaudit_AnaesthetistUser extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'et_ophauanaestheticsataudit_anaesthetist_lookup';
+		return 'et_ophouanaestheticsataudit_anaesthetist_lookup';
 	}
 
 	/**

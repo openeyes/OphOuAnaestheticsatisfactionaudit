@@ -24,7 +24,7 @@
  * @property string $moduleShortSuffix
   */
 
-class OphAuAnaestheticsatisfactionauditModule extends BaseEventTypeModule
+class OphOuAnaestheticsatisfactionauditModule extends BaseEventTypeModule
 {
 	// this property is really only relevant to gii auto-generation, specifically
 	// for updates to the module through gii
@@ -36,8 +36,8 @@ class OphAuAnaestheticsatisfactionauditModule extends BaseEventTypeModule
 
 		// import the module-level models and components
 		$this->setImport(array(
-			'OphAuAnaestheticsatisfactionaudit.models.*',
-			'OphAuAnaestheticsatisfactionaudit.components.*',
+			'OphOuAnaestheticsatisfactionaudit.models.*',
+			'OphOuAnaestheticsatisfactionaudit.components.*',
 		));
 		
 		$this->moduleShortSuffix = "anaestheticsataudit";

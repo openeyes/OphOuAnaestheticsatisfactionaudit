@@ -17,11 +17,13 @@
  */
 
 /**
- * This is the model class for table "element_type_systolic".
+ * This is the model class for table "et_auophanaestheticsataudit_notes".
  *
  * The followings are the available columns in table:
  * @property string $id
- * @property string $name
+ * @property integer $event_id
+ * @property string $comments
+ * @property integer $ready_for_discharge_id
  *
  * The followings are the available model relations:
  *
@@ -30,10 +32,13 @@
  * @property Event $event
  * @property User $user
  * @property User $usermodified
+ * @property Element_OphOuAnaestheticsatisfactionaudit_Notes_ReadyForDischarge $ready_for_discharge
  */
 
-class Element_OphAuAnaestheticsatisfactionaudit_VitalSigns_Systolic extends BaseActiveRecord
+class Element_OphOuAnaestheticsatisfactionaudit_Notes extends BaseEventTypeElement
 {
+	public $service;
+
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @return the static model class
@@ -48,7 +53,7 @@ class Element_OphAuAnaestheticsatisfactionaudit_VitalSigns_Systolic extends Base
 	 */
 	public function tableName()
 	{
-		return 'et_ophauanaestheticsataudit_vitalsigns_systolic';
+		return 'et_ophouanaestheticsataudit_notes';
 	}
 
 	/**
@@ -59,11 +64,11 @@ class Element_OphAuAnaestheticsatisfactionaudit_VitalSigns_Systolic extends Base
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('name', 'safe'),
-			array('name', 'required'),
+			array('event_id, comments, ready_for_discharge_id, ', 'safe'),
+			array('ready_for_discharge_id, ', 'required'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, name', 'safe', 'on' => 'search'),
+			array('id, event_id, comments, ready_for_discharge_id, ', 'safe', 'on' => 'search'),
 		);
 	}
 	
@@ -75,8 +80,12 @@ class Element_OphAuAnaestheticsatisfactionaudit_VitalSigns_Systolic extends Base
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+			'element_type' => array(self::HAS_ONE, 'ElementType', 'id','on' => "element_type.class_name='".get_class($this)."'"),
+			'eventType' => array(self::BELONGS_TO, 'EventType', 'event_type_id'),
+			'event' => array(self::BELONGS_TO, 'Event', 'event_id'),
 			'user' => array(self::BELONGS_TO, 'User', 'created_user_id'),
 			'usermodified' => array(self::BELONGS_TO, 'User', 'last_modified_user_id'),
+			'ready_for_discharge' => array(self::BELONGS_TO, 'Element_OphOuAnaestheticsatisfactionaudit_Notes_ReadyForDischarge', 'ready_for_discharge_id'),
 		);
 	}
 
@@ -87,7 +96,9 @@ class Element_OphAuAnaestheticsatisfactionaudit_VitalSigns_Systolic extends Base
 	{
 		return array(
 			'id' => 'ID',
-			'name' => 'Name',
+			'event_id' => 'Event',
+'comments' => 'Comments',
+'ready_for_discharge_id' => 'Ready for discharge from recovery',
 		);
 	}
 
@@ -103,8 +114,11 @@ class Element_OphAuAnaestheticsatisfactionaudit_VitalSigns_Systolic extends Base
 		$criteria = new CDbCriteria;
 
 		$criteria->compare('id', $this->id, true);
-		$criteria->compare('name', $this->name, true);
+		$criteria->compare('event_id', $this->event_id, true);
 
+$criteria->compare('comments', $this->comments);
+$criteria->compare('ready_for_discharge_id', $this->ready_for_discharge_id);
+		
 		return new CActiveDataProvider(get_class($this), array(
 				'criteria' => $criteria,
 			));
@@ -115,7 +129,11 @@ class Element_OphAuAnaestheticsatisfactionaudit_VitalSigns_Systolic extends Base
 	 */
 	public function setDefaultOptions()
 	{
+		if (Yii::app()->getController()->getAction()->id == 'create') {
+				}
 	}
+
+
 
 	protected function beforeSave()
 	{
@@ -124,6 +142,7 @@ class Element_OphAuAnaestheticsatisfactionaudit_VitalSigns_Systolic extends Base
 
 	protected function afterSave()
 	{
+
 		return parent::afterSave();
 	}
 
