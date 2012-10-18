@@ -6,7 +6,7 @@ function calculateScore() {
 	score = 0;
 	for (var i = 0; i < scoreElements.length; i++) {
 		el = scoreElements[i];
-		selected_key = parseInt($('#Element_OphAuAnaestheticsatisfactionaudit_VitalSigns_' + el + '_id').val());
+		selected_key = parseInt($('#Element_OphOuAnaestheticsatisfactionaudit_VitalSigns_' + el + '_id').val());
 		if (scoreData[el][selected_key] !== undefined) {
 			score += parseInt(scoreData[el][selected_key]);
 		}
@@ -82,7 +82,7 @@ $(document).ready(function() {
 		}
 	});
 	
-	$("div.Element_OphAuAnaestheticsatisfactionaudit_VitalSigns select").live('change', function () {
+	$("div.Element_OphOuAnaestheticsatisfactionaudit_VitalSigns select").live('change', function () {
 		calculateScore();
 	});
 });

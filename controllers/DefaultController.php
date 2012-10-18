@@ -2,15 +2,9 @@
 
 class DefaultController extends BaseEventTypeController {
 
-	public $anaesthetistList;
 	
 	protected function beforeAction($action)
 	{
-		$this->anaesthetistList = array();
-		foreach (OphAuAnaestheticsatisfactionaudit_AnaesthetistUser::model()->findAll() as $anaesthetist) {
-			$this->anaesthetistList[] = $anaesthetist->user;
-		}
-	
 		return parent::beforeAction($action);
 	}
 	

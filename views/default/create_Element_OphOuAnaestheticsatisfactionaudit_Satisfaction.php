@@ -1,5 +1,4 @@
-<?php
-/**
+<?php /**
  * OpenEyes
  *
  * (C) Moorfields Eye Hospital NHS Foundation Trust, 2008-2011
@@ -16,42 +15,13 @@
  * @copyright Copyright (c) 2011-2012, OpenEyes Foundation
  * @license http://www.gnu.org/licenses/gpl-3.0.html The GNU General Public License V3.0
  */
+ ?>
+<div class="<?php echo $element->elementType->class_name?>">
+	<h4 class="elementTypeName"><?php  echo $element->elementType->name; ?></h4>
 
-/**
- * This is the module class for $this->moduleSuffix
- *
- * The followings are the available columns in table:
- * @property string $moduleShortSuffix
-  */
-
-class OphAuAnaestheticsatisfactionauditModule extends BaseEventTypeModule
-{
-	// this property is really only relevant to gii auto-generation, specifically
-	// for updates to the module through gii
-	public $moduleShortSuffix;
-	
-	public function init() {
-		// this method is called when the module is being created
-		// you may place code here to customize the module or the application
-
-		// import the module-level models and components
-		$this->setImport(array(
-			'OphAuAnaestheticsatisfactionaudit.models.*',
-			'OphAuAnaestheticsatisfactionaudit.components.*',
-		));
-		
-		$this->moduleShortSuffix = "anaestheticsataudit";
-		
-		parent::init();
-	}
-
-	public function beforeControllerAction($controller, $action) {
-		if(parent::beforeControllerAction($controller, $action)) {
-			// this method is called before any module controller action is performed
-			// you may place customized code here
-			return true;
-		}
-		else
-			return false;
-	}
-}
+	<?php echo $form->slider($element, 'pain', array('min' => 0, 'max' => 10, 'step' => 1))?>
+	<div class="eventDetail"><img class="field_key" id="pain_key" src="<?php echo $this->assetPath; if ($this->patient->isChild()) { echo "/img/painscale_child.png"; } else { echo "/img/painscale_adult.png"; } ?>"  /></div>
+	<?php echo $form->slider($element, 'nausea', array('min' => 0, 'max' => 3, 'step' => 1))?>
+	<div class="eventDetail"><div class="field_key"><em>0 - none, 1 - mild, 2 - moderate, 3 - severe</em></div></div>
+	<?php echo $form->checkBox($element, 'vomited')?>
+</div>

@@ -32,7 +32,7 @@
  * @property User $usermodified
  */
 
-class Element_OphAuAnaestheticsatisfactionaudit_VitalSigns_ConsciousLvl extends BaseActiveRecord
+class Element_OphOuAnaestheticsatisfactionaudit_VitalSigns_ConsciousLvl extends BaseActiveRecord
 {
 	/**
 	 * Returns the static model of the specified AR class.
@@ -48,7 +48,7 @@ class Element_OphAuAnaestheticsatisfactionaudit_VitalSigns_ConsciousLvl extends 
 	 */
 	public function tableName()
 	{
-		return 'et_ophauanaestheticsataudit_vitalsigns_conscious_lvl';
+		return 'et_ophouanaestheticsataudit_vitalsigns_conscious_lvl';
 	}
 
 	/**

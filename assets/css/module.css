@@ -1,15 +1,15 @@
 @CHARSET "UTF-8";
 
 .field_key {
-	margin-left: 232px;
+	margin-left: 205px;
 }
 
 input.widgetSlider {
-	width: 420px;
+	width: 345px;
 }
 
 input.widgetSlider#Element_OphAuAnaestheticsatisfactionaudit_Satisfaction_nausea {
-	width: 168px;
+	width: 116px;
 }
 
 #liveMEWSContainer {
@@ -18,14 +18,17 @@ input.widgetSlider#Element_OphAuAnaestheticsatisfactionaudit_Satisfaction_nausea
 	width: 300px;
 }
 #MEWS{
-	width: 233px;
+	width: 243px;
 	margin: -150px 0px 0px 150px;
 	font-size: 1.8em;
 	padding: 3px;
 }
 
 #liveMEWS {
-	margin-left: 20px;
+	width: 50px;
+	text-align: right;
+	float: left;
+	position: absolute;
 }
 
 .highMEWS {
@@ -45,4 +48,3 @@ input.widgetSlider#Element_OphAuAnaestheticsatisfactionaudit_Satisfaction_nausea
 .score_3 {
 	background-color: #ff7878;
 	padding: 2px;
-}
