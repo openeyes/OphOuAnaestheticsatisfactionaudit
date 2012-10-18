@@ -7,7 +7,7 @@ class m121010_085427_event_type_OphAuAnaestheticsatisfactionaudit extends CDbMig
 
 		// create an event_type entry for this event type name if one doesn't already exist
 		if (!$this->dbConnection->createCommand()->select('id')->from('event_type')->where('name=:name', array(':name'=>'Anaesthetic Satisfaction Audit'))->queryRow()) {
-			$group = $this->dbConnection->createCommand()->select('id')->from('event_group')->where('name=:name',array(':name'=>'Audit'))->queryRow();
+			$group = $this->dbConnection->createCommand()->select('id')->from('event_group')->where('name=:name',array(':name'=>'Outcomes'))->queryRow();
 			$this->insert('event_type', array('class_name' => 'OphAuAnaestheticsatisfactionaudit', 'name' => 'Anaesthetic Satisfaction Audit','event_group_id' => $group['id']));
 		}
 		// select the event_type id for this event type name
