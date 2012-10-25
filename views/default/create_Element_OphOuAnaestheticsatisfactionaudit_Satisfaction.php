@@ -23,5 +23,5 @@
 	<div class="eventDetail"><img class="field_key" id="pain_key" src="<?php echo $this->assetPath; if ($this->patient->isChild()) { echo "/img/painscale_child.png"; } else { echo "/img/painscale_adult.png"; } ?>"  /></div>
 	<?php echo $form->slider($element, 'nausea', array('min' => 0, 'max' => 3, 'step' => 1))?>
 	<div class="eventDetail"><div class="field_key"><em>0 - none, 1 - mild, 2 - moderate, 3 - severe</em></div></div>
-	<?php echo $form->checkBox($element, 'vomited')?>
+	<?php echo $form->radioBoolean($element, 'vomited')?>
 </div>
