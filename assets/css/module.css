@@ -12,17 +12,9 @@ input.widgetSlider#Element_OphOuAnaestheticsatisfactionaudit_Satisfaction_nausea
 	width: 120px;
 }
 
-#liveMEWSContainer {
-	position: relative;
-	margin-left: 300px;
-	width: 300px;
-}
-#MEWS{
-	width: 243px;
-	margin: -150px 0px 0px 150px;
-	font-size: 1.8em;
-	padding: 3px;
-}
+#liveMEWSContainer .MEWS { background: #fafafa; }
+#liveMEWSContainer .MEWS.high { background: #f06c6c; }
+#liveMEWSContainer .MEWS.ok	{ background: #d3ebd2; }
 
 #liveMEWS {
 	width: 50px;
@@ -31,20 +23,18 @@ input.widgetSlider#Element_OphOuAnaestheticsatisfactionaudit_Satisfaction_nausea
 	position: absolute;
 }
 
-.highMEWS {
-	border: #f00 solid 3px !important;
-}
-
+/*
 .score_1 {
-	background-color: #4febc9;
+	color: #4febc9;
 	padding: 2px;
 }
 
 .score_2 {
-	background-color: #fff49c;
+	color: #fff49c;
 	padding: 2px;
 }
+*/
 
 .score_3 {
-	background-color: #ff7878;
+	color: #f00;
 	padding: 2px;

@@ -13,10 +13,10 @@ function calculateScore() {
 	}
 	
 	if (score > 3) {
-		$('#liveMEWS').text(score).parent().addClass('highMEWS').show();
+		$('#liveMEWS').text(score).parents('div').addClass('high').show();
 	}
 	else {
-		$('#liveMEWS').text(score).parent().removeClass('highMEWS').show();
+		$('#liveMEWS').text(score).parents('div').removeClass('high').show();
 	}
 }
 

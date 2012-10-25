@@ -21,7 +21,7 @@
 	data-element-type-class="<?php echo $element->elementType->class_name?>"
 	data-element-type-name="<?php echo $element->elementType->name?>"
 	data-element-display-order="<?php echo $element->elementType->display_order?>"
-	style="clear: both;">
+	>
 	<h4 class="elementTypeName"><?php  echo $element->elementType->name; ?></h4>
 
 	<?php echo $form->textArea($element, 'comments', array('rows' => 6, 'cols' => 80))?>
