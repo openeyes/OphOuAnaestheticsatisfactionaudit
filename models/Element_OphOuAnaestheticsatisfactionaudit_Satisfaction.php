@@ -154,4 +154,3 @@ class Element_OphOuAnaestheticsatisfactionaudit_Satisfaction extends BaseEventTy
 		return parent::beforeValidate();
 	}
 }
-?>

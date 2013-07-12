@@ -197,4 +197,3 @@ class m121010_085427_event_type_OphAuAnaestheticsatisfactionaudit extends CDbMig
 		return true;
 	}
 }
-?>

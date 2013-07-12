@@ -75,4 +75,3 @@ class m121016_164501_add_notes_element extends CDbMigration
 
 	}
 }
-?>

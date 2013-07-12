@@ -133,4 +133,3 @@ class Element_OphOuAnaestheticsatisfactionaudit_VitalSigns_ConsciousLvl extends 
 		return parent::beforeValidate();
 	}
 }
-?>

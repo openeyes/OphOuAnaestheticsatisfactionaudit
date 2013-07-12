@@ -135,4 +135,3 @@ class Element_OphOuAnaestheticsatisfactionaudit_VitalSigns_BodyTemp extends Base
 		return parent::beforeValidate();
 	}
 }
-?>

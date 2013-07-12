@@ -133,4 +133,3 @@ class Element_OphOuAnaestheticsatisfactionaudit_VitalSigns_HeartRate extends Bas
 		return parent::beforeValidate();
 	}
 }
-?>

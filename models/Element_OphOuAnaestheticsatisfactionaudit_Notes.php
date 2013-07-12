@@ -152,4 +152,3 @@ $criteria->compare('ready_for_discharge_id', $this->ready_for_discharge_id);
 		return parent::beforeValidate();
 	}
 }
-?>

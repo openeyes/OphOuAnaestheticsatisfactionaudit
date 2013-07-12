@@ -184,4 +184,3 @@ class Element_OphOuAnaestheticsatisfactionaudit_VitalSigns extends BaseEventType
 		return parent::beforeValidate();
 	}
 }
-?>

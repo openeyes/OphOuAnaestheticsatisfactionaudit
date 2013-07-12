@@ -133,4 +133,3 @@ class Element_OphOuAnaestheticsatisfactionaudit_VitalSigns_OxygenSaturation exte
 		return parent::beforeValidate();
 	}
 }
-?>

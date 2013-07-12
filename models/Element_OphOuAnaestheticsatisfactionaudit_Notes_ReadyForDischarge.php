@@ -136,4 +136,3 @@ class Element_OphOuAnaestheticsatisfactionaudit_Notes_ReadyForDischarge extends 
 		return parent::beforeValidate();
 	}
 }
-?>

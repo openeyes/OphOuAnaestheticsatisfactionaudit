@@ -214,4 +214,3 @@ class Element_OphOuAnaestheticsatisfactionaudit_Anaesthetist extends BaseEventTy
 		return parent::beforeValidate();
 	}
 }
-?>

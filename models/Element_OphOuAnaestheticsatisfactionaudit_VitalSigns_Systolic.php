@@ -133,4 +133,3 @@ class Element_OphOuAnaestheticsatisfactionaudit_VitalSigns_Systolic extends Base
 		return parent::beforeValidate();
 	}
 }
-?>

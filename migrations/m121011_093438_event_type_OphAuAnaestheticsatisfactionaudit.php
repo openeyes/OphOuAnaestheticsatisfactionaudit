@@ -244,4 +244,3 @@ class m121011_093438_event_type_OphAuAnaestheticsatisfactionaudit extends CDbMig
 		$this->addColumn('et_ophauanaestheticsataudit_vitalsigns','heart_rate', 'int(10) unsigned NOT NULL');
 	}
 }
-?>
