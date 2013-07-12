@@ -67,7 +67,7 @@ class Element_OphOuAnaestheticsatisfactionaudit_VitalSigns_Systolic extends Base
 			array('id, name', 'safe', 'on' => 'search'),
 		);
 	}
-	
+
 	/**
 	 * @return array relational rules.
 	 */

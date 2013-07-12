@@ -1,8 +1,8 @@
-<?php 
+<?php
 class m121016_164501_add_notes_element extends CDbMigration
 {
-	public function up() {
-
+	public function up()
+	{
 		$event_type = $this->dbConnection->createCommand()->select('id')->from('event_type')->where('name=:name', array(':name'=>'Anaesthetic Satisfaction Audit'))->queryRow();
 
 		// --- ELEMENT TYPE ENTRIES ---
@@ -59,7 +59,8 @@ class m121016_164501_add_notes_element extends CDbMigration
 
 	}
 
-	public function down() {
+	public function down()
+	{
 		// --- drop any element related tables ---
 		// --- drop element tables ---
 

@@ -72,7 +72,7 @@ class Element_OphOuAnaestheticsatisfactionaudit_Satisfaction extends BaseEventTy
 			array('id, event_id, pain, nausea, vomited, ', 'safe', 'on' => 'search'),
 		);
 	}
-	
+
 	/**
 	 * @return array relational rules.
 	 */
@@ -119,7 +119,7 @@ class Element_OphOuAnaestheticsatisfactionaudit_Satisfaction extends BaseEventTy
 		$criteria->compare('pain', $this->pain);
 		$criteria->compare('nausea', $this->nausea);
 		$criteria->compare('vomited', $this->vomited);
-		
+
 		return new CActiveDataProvider(get_class($this), array(
 				'criteria' => $criteria,
 			));

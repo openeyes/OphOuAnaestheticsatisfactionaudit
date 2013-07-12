@@ -72,7 +72,7 @@ class Element_OphOuAnaestheticsatisfactionaudit_Notes extends BaseEventTypeEleme
 			array('id, event_id, comments, ready_for_discharge_id, ', 'safe', 'on' => 'search'),
 		);
 	}
-	
+
 	/**
 	 * @return array relational rules.
 	 */
@@ -119,7 +119,7 @@ class Element_OphOuAnaestheticsatisfactionaudit_Notes extends BaseEventTypeEleme
 
 $criteria->compare('comments', $this->comments);
 $criteria->compare('ready_for_discharge_id', $this->ready_for_discharge_id);
-		
+
 		return new CActiveDataProvider(get_class($this), array(
 				'criteria' => $criteria,
 			));

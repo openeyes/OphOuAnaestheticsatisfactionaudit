@@ -6,9 +6,9 @@ class m121016_152255_remove_ramsay extends CDbMigration
 	{
 		$this->dropTable('et_ophauanaestheticsataudit_ramsayscore');
 		$this->dropTable('et_ophauanaestheticsataudit_ramsayscore_score');
-		
+
 		$event_type = $this->dbConnection->createCommand()->select('id')->from('event_type')->where('name=:name', array(':name'=>'Anaesthetic Satisfaction Audit'))->queryRow();
-		
+
 		if ($this->dbConnection->createCommand()->select('id')->from('element_type')->where('name=:name and event_type_id=:eventTypeId', array(':name'=>'Ramsay Score',':eventTypeId'=>$event_type['id']))->queryRow()) {
 			$this->delete('element_type', "class_name = 'Element_OphAuAnaestheticsatisfactionaudit_RamsayScore' AND event_type_id = " . $event_type['id']);
 		}
@@ -17,13 +17,13 @@ class m121016_152255_remove_ramsay extends CDbMigration
 	public function down()
 	{
 		echo "***WARNING: data will not be restored, but ramsay score will be made available again***\nCode will need to be restored from the repository as well\n";
-		
+
 		$event_type = $this->dbConnection->createCommand()->select('id')->from('event_type')->where('name=:name', array(':name'=>'Anaesthetic Satisfaction Audit'))->queryRow();
-		
+
 		if (!$this->dbConnection->createCommand()->select('id')->from('element_type')->where('name=:name and event_type_id=:eventTypeId', array(':name'=>'Ramsay Score',':eventTypeId'=>$event_type['id']))->queryRow()) {
 			$this->insert('element_type', array('name' => 'Ramsay Score','class_name' => 'Element_OphAuAnaestheticsatisfactionaudit_RamsayScore', 'event_type_id' => $event_type['id'], 'display_order' => 1));
 		}
-				
+
 		// element lookup table et_ophauanaestheticsataudit_ramsayscore_score
 		$this->createTable('et_ophauanaestheticsataudit_ramsayscore_score', array(
 				'id' => 'int(10) unsigned NOT NULL AUTO_INCREMENT',

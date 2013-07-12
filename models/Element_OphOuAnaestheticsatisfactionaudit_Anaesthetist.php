@@ -41,35 +41,35 @@ class Element_OphOuAnaestheticsatisfactionaudit_Anaesthetist extends BaseEventTy
 {
 	public $service;
 	public $anaesthetist_select;
-	
+
 	// form select and display values for exceptional anaesthetist values
 	const NONCONSULTANT = 'non';
 	const NONCONSULTANT_DISP = 'Non-consultant';
 	const NOANAESTHETIST = 'no';
 	const NOANAESTHETIST_DISP = 'No anaesthetist';
-	
-	public function afterFind() {
+
+	public function afterFind()
+	{
 		if ($this->id) {
 			// need to set the value on the anaesthetist_select for use in forms
 			if ($this->non_consultant) {
 				$this->anaesthetist_select = self::NONCONSULTANT;
-			}
-			elseif ($this->no_anaesthetist) {
+			} elseif ($this->no_anaesthetist) {
 				$this->anaesthetist_select = self::NOANAESTHETIST;
-			}
-			else {
+			} else {
 				$this->anaesthetist_select = $this->anaesthetist_id;
 			}
 		}
 	}
-	
+
 	/**
 	 * override to ensure support for custom attribute of anaesthetist_select
 	 * otherwise calls parent
-	 * 
+	 *
 	 * @see CActiveRecord::hasAttribute()
 	 */
-	public function hasAttribute($name) {
+	public function hasAttribute($name)
+	{
 		if ($name == 'anaesthetist_select') {
 			return true;
 		}
@@ -107,7 +107,7 @@ class Element_OphOuAnaestheticsatisfactionaudit_Anaesthetist extends BaseEventTy
 			//array('id, event_id, anaesthetist_id, ', 'safe', 'on' => 'search'),
 		);
 	}
-	
+
 	/**
 	 * @return array relational rules.
 	 */
@@ -125,19 +125,20 @@ class Element_OphOuAnaestheticsatisfactionaudit_Anaesthetist extends BaseEventTy
 		);
 	}
 
-	public function anaesthetistSelectList() {
+	public function anaesthetistSelectList()
+	{
 		$anaesthetistList = array(
 				array('id' => self::NONCONSULTANT, 'text' => self::NONCONSULTANT_DISP),
 				array('id' => self::NOANAESTHETIST, 'text' => self::NOANAESTHETIST_DISP),
 		);
-		
+
 		foreach (OphOuAnaestheticsatisfactionaudit_AnaesthetistUser::model()->findAll() as $anaesthetist) {
 			$anaesthetistList[] = array('id' => $anaesthetist->user->id, 'text' => $anaesthetist->user->fullNameAndTitle);
 		}
-		
+
 		return $anaesthetistList;
 	}
-	
+
 	/**
 	 * @return array customized attribute labels (name=>label)
 	 */
@@ -166,7 +167,7 @@ class Element_OphOuAnaestheticsatisfactionaudit_Anaesthetist extends BaseEventTy
 		$criteria->compare('event_id', $this->event_id, true);
 
 		$criteria->compare('anaesthetist_id', $this->anaesthetist_id);
-		
+
 		return new CActiveDataProvider(get_class($this), array(
 				'criteria' => $criteria,
 			));
@@ -189,14 +190,12 @@ class Element_OphOuAnaestheticsatisfactionaudit_Anaesthetist extends BaseEventTy
 			$this->non_consultant = true;
 			$this->no_anaesthetist = false;
 			$this->anaesthetist_id = null;
-			
-		}
-		elseif ($this->anaesthetist_select == self::NOANAESTHETIST) {
+
+		} elseif ($this->anaesthetist_select == self::NOANAESTHETIST) {
 			$this->no_anaesthetist = true;
 			$this->non_consultant = false;
 			$this->anaesthetist_id = null;
-		}
-		else {
+		} else {
 			$this->anaesthetist_id = $this->anaesthetist_select;
 			$this->no_anaesthetist = false;
 			$this->non_consultant = false;

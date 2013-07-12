@@ -67,7 +67,7 @@ class Element_OphOuAnaestheticsatisfactionaudit_Notes_ReadyForDischarge extends 
 			array('id, name', 'safe', 'on' => 'search'),
 		);
 	}
-	
+
 	/**
 	 * @return array relational rules.
 	 */

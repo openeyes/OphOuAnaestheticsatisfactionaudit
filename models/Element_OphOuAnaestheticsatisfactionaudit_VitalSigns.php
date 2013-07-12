@@ -37,7 +37,7 @@
  * @property Element_OphOuAnaestheticsatisfactionaudit_VitalSigns_BodyTemp body_temp
  * @property Element_OphOuAnaestheticsatisfactionaudit_VitalSigns_HeartRate heart_rate
  * @property Element_OphOuAnaestheticsatisfactionaudit_VitalSigns_ConsciousLvl conscious_lvl
- * 
+ *
  */
 
 class Element_OphOuAnaestheticsatisfactionaudit_VitalSigns extends BaseEventTypeElement
@@ -77,7 +77,7 @@ class Element_OphOuAnaestheticsatisfactionaudit_VitalSigns extends BaseEventType
 		);
 	}
 
-	
+
 	/**
 	 * @return array relational rules.
 	 */
@@ -135,10 +135,10 @@ class Element_OphOuAnaestheticsatisfactionaudit_VitalSigns extends BaseEventType
 				'criteria' => $criteria,
 			));
 	}
-	
+
 	/**
 	 * calculates the MEW score from the scores of the current vital sign values
-	 * 
+	 *
 	 * @return integer or boolean (false when vital signs not set)
 	 */
 	public function calculateMEW()
@@ -153,9 +153,9 @@ class Element_OphOuAnaestheticsatisfactionaudit_VitalSigns extends BaseEventType
 		$score += $this->body_temp->score;
 		$score += $this->heart_rate->score;
 		$score += $this->conscious_lvl->score;
-		
+
 		return $score;
-		
+
 	}
 
 	/**

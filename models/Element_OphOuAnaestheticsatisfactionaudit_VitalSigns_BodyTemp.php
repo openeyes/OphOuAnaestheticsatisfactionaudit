@@ -68,7 +68,7 @@ class Element_OphOuAnaestheticsatisfactionaudit_VitalSigns_BodyTemp extends Base
 			array('id, name', 'safe', 'on' => 'search'),
 		);
 	}
-	
+
 	/**
 	 * @return array relational rules.
 	 */

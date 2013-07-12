@@ -19,7 +19,7 @@
  ?>
 <div class="<?php echo $element->elementType->class_name?>">
 	<h4 class="elementTypeName"><?php  echo $element->elementType->name; ?></h4>
-	
+
 	<?php echo $form->dropDownList($element, 'respiratory_rate_id', CHtml::listData(Element_OphOuAnaestheticsatisfactionaudit_VitalSigns_RespiratoryRate::model()->findAll(array('order'=> 'display_order asc')),'id','name'),array('empty'=>'- Please select -'))?>
 	<?php echo $form->dropDownList($element, 'oxygen_saturation_id', CHtml::listData(Element_OphOuAnaestheticsatisfactionaudit_VitalSigns_OxygenSaturation::model()->findAll(array('order'=> 'display_order asc')),'id','name'),array('empty'=>'- Please select -'))?>
 	<?php echo $form->dropDownList($element, 'systolic_id', CHtml::listData(Element_OphOuAnaestheticsatisfactionaudit_VitalSigns_Systolic::model()->findAll(array('order'=> 'display_order asc')),'id','name'),array('empty'=>'- Please select -'))?>
@@ -27,4 +27,3 @@
 	<?php echo $form->dropDownList($element, 'heart_rate_id', CHtml::listData(Element_OphOuAnaestheticsatisfactionaudit_VitalSigns_HeartRate::model()->findAll(array('order'=> 'display_order asc')),'id','name'),array('empty'=>'- Please select -'))?>
 	<?php echo $form->dropDownList($element, 'conscious_lvl_id', CHtml::listData(Element_OphOuAnaestheticsatisfactionaudit_VitalSigns_ConsciousLvl::model()->findAll(array('order'=> 'display_order asc')),'id','name'),array('empty'=>'- Please select -'))?>
 </div>
-

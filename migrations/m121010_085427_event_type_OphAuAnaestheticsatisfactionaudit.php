@@ -1,8 +1,8 @@
-<?php 
+<?php
 class m121010_085427_event_type_OphAuAnaestheticsatisfactionaudit extends CDbMigration
 {
-	public function up() {
-
+	public function up()
+	{
 		// --- EVENT TYPE ENTRIES ---
 
 		// create an event_type entry for this event type name if one doesn't already exist
@@ -155,7 +155,8 @@ class m121010_085427_event_type_OphAuAnaestheticsatisfactionaudit extends CDbMig
 
 	}
 
-	public function down() {
+	public function down()
+	{
 		// --- drop any element related tables ---
 		// --- drop element tables ---
 		$this->dropTable('et_ophauanaestheticsataudit_anaesthetis');

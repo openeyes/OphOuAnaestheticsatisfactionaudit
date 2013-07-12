@@ -67,7 +67,7 @@ class Element_OphOuAnaestheticsatisfactionaudit_VitalSigns_ConsciousLvl extends 
 			array('id, name', 'safe', 'on' => 'search'),
 		);
 	}
-	
+
 	/**
 	 * @return array relational rules.
 	 */

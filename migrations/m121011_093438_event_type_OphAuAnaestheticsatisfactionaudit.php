@@ -1,13 +1,14 @@
-<?php 
+<?php
 class m121011_093438_event_type_OphAuAnaestheticsatisfactionaudit extends CDbMigration
 {
-	public function up() {
+	public function up()
+	{
 		$this->dropColumn('et_ophauanaestheticsataudit_vitalsigns','respiratory_rate');
 		$this->dropColumn('et_ophauanaestheticsataudit_vitalsigns','oxygen_saturation');
 		$this->dropColumn('et_ophauanaestheticsataudit_vitalsigns','systolic_blood_pressure');
 		$this->dropColumn('et_ophauanaestheticsataudit_vitalsigns','body_temperature');
 		$this->dropColumn('et_ophauanaestheticsataudit_vitalsigns','heart_rate');
-		
+
 		// element lookup table et_ophauanaestheticsataudit_vitalsigns_respiratory_rate
 		$this->createTable('et_ophauanaestheticsataudit_vitalsigns_respiratory_rate', array(
 				'id' => 'int(10) unsigned NOT NULL AUTO_INCREMENT',
@@ -154,7 +155,7 @@ class m121011_093438_event_type_OphAuAnaestheticsatisfactionaudit extends CDbMig
 		$this->addColumn('et_ophauanaestheticsataudit_vitalsigns','respiratory_rate_id','int(10) unsigned NOT NULL');
 
 		$this->createIndex('et_ophauanaestheticsataudit_vitalsigns_respiratory_rate_fk','et_ophauanaestheticsataudit_vitalsigns','respiratory_rate_id');
-	
+
 		$this->addForeignKey('et_ophauanaestheticsataudit_vitalsigns_respiratory_rate_fk','et_ophauanaestheticsataudit_vitalsigns','respiratory_rate_id','et_ophauanaestheticsataudit_vitalsigns_respiratory_rate','id');
 
 		$this->addColumn('et_ophauanaestheticsataudit_vitalsigns','oxygen_saturation_id','int(10) unsigned NOT NULL');
@@ -190,8 +191,8 @@ class m121011_093438_event_type_OphAuAnaestheticsatisfactionaudit extends CDbMig
 
 	}
 
-	public function down() {
-
+	public function down()
+	{
 		// update the element type table with the new fields
 		$this->dropForeignKey('et_ophauanaestheticsataudit_vitalsigns_respiratory_rate_fk','et_ophauanaestheticsataudit_vitalsigns');
 
@@ -235,7 +236,7 @@ class m121011_093438_event_type_OphAuAnaestheticsatisfactionaudit extends CDbMig
 		$this->dropTable('et_ophauanaestheticsataudit_vitalsigns_body_temp');
 		$this->dropTable('et_ophauanaestheticsataudit_vitalsigns_heart_rate');
 		$this->dropTable('et_ophauanaestheticsataudit_vitalsigns_conscious_lvl');
-		
+
 		$this->addColumn('et_ophauanaestheticsataudit_vitalsigns','respiratory_rate', 'int(10) unsigned NOT NULL');
 		$this->addColumn('et_ophauanaestheticsataudit_vitalsigns','oxygen_saturation', 'int(10) unsigned NOT NULL');
 		$this->addColumn('et_ophauanaestheticsataudit_vitalsigns','systolic_blood_pressure', 'int(10) unsigned NOT NULL');

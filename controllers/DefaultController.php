@@ -1,4 +1,4 @@
-<?php 
+<?php
 /**
  * OpenEyes
  *
@@ -17,27 +17,30 @@
  * @license http://www.gnu.org/licenses/gpl-3.0.html The GNU General Public License V3.0
  */
 
-class DefaultController extends BaseEventTypeController {
-
-	
+class DefaultController extends BaseEventTypeController
+{
 	protected function beforeAction($action)
 	{
 		return parent::beforeAction($action);
 	}
-	
-	public function actionCreate() {
+
+	public function actionCreate()
+	{
 		parent::actionCreate();
 	}
 
-	public function actionUpdate($id) {
+	public function actionUpdate($id)
+	{
 		parent::actionUpdate($id);
 	}
 
-	public function actionView($id) {
+	public function actionView($id)
+	{
 		parent::actionView($id);
 	}
 
-	public function actionPrint($id) {
+	public function actionPrint($id)
+	{
 		parent::actionPrint($id);
 	}
 }
