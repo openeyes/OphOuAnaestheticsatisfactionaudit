@@ -17,14 +17,20 @@
  * @license http://www.gnu.org/licenses/gpl-3.0.html The GNU General Public License V3.0
  */
 /* line 2, ../sass/components/_event.scss */
-.event.anaesthetic-satisfaction-audit {
+.event.ophouanaestheticsatisfactionaudit {
   border-color: #f0906f;
 }
 /* line 4, ../sass/components/_event.scss */
-.event.anaesthetic-satisfaction-audit .event-content {
-  background-image: url('../img/new/watermark.png?1379073690');
+.event.ophouanaestheticsatisfactionaudit .event-content {
+  background-image: url('../img/new/watermark.png?1382442908');
 }
 /* line 7, ../sass/components/_event.scss */
-.event.anaesthetic-satisfaction-audit .event-title {
-  background-image: url('../img/new/medium.png?1379069604');
+.event.ophouanaestheticsatisfactionaudit .event-title {
+  background-image: url('../img/new/medium.png?1382442908');
+}
+
+/* line 2, ../sass/components/_slider.scss */
+.slider.painscale {
+  width: 333px;
+  margin-left: 23px;
 }
