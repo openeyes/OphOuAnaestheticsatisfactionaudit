@@ -1,4 +1,3 @@
-<?php /* DEPRECATED */ ?>
 <?php
 /**
  * OpenEyes
@@ -17,13 +16,9 @@
  * @copyright Copyright (c) 2011-2013, OpenEyes Foundation
  * @license http://www.gnu.org/licenses/gpl-3.0.html The GNU General Public License V3.0
  */
- ?>
-<div class="<?php echo $element->elementType->class_name?>">
-	<h4 class="elementTypeName"><?php  echo $element->elementType->name; ?></h4>
-
-	<?php echo $form->slider($element, 'pain', array('min' => 0, 'max' => 10, 'step' => 1))?>
-	<div class="eventDetail"><img class="field_key" id="pain_key" src="<?php echo $this->assetPath; if ($this->patient->isChild()) { echo "/img/painscale_child.png"; } else { echo "/img/painscale_adult.png"; } ?>"  /></div>
-	<?php echo $form->slider($element, 'nausea', array('min' => 0, 'max' => 3, 'step' => 1))?>
-	<div class="eventDetail"><div class="field_key"><em>0 - none, 1 - mild, 2 - moderate, 3 - severe</em></div></div>
-	<?php echo $form->checkBox($element, 'vomited')?>
-</div>
+?>
+<?php $this->renderPartial(
+		'form_' . get_class($element),
+		array('element' => $element, 'data' => $data, 'form' => $form),
+		false, false
+)?>

@@ -16,19 +16,18 @@
  * @copyright Copyright (c) 2011-2013, OpenEyes Foundation
  * @license http://www.gnu.org/licenses/gpl-3.0.html The GNU General Public License V3.0
  */
-
-$this->beginContent('//patient/event_container');
 ?>
-	<?php
-		// Event actions
-		if ($this->canPrint()) {
-			// $this->event_actions[] = EventAction::button('Print', 'print',null,array('class'=>'button small'));
-		}
-	?>
+<section class="element <?php echo $element->elementType->class_name?>"
+	data-element-type-id="<?php echo $element->elementType->id?>"
+	data-element-type-class="<?php echo $element->elementType->class_name?>"
+	data-element-type-name="<?php echo $element->elementType->name?>"
+	data-element-display-order="<?php echo $element->elementType->display_order?>">
+	<header class="element-header">
+		<h3 class="element-title"><?php echo $element->elementType->name; ?></h3>
+	</header>
 
-	<h2 class="event-title"><?php echo $this->event_type->name?></h2>
-
-	<?php $this->renderDefaultElements($this->action->id)?>
-	<?php $this->renderOptionalElements($this->action->id)?>
-
-<?php $this->endContent() ;?>
+	<div class="element-fields">
+		<?php echo $form->textArea($element, 'comments', array(), false, array('placeholder' => 'Enter comments ...'))?>
+		<?php echo $form->radioButtons($element, 'ready_for_discharge_id', 'et_ophouanaestheticsataudit_notes_ready_for_discharge')?>
+	</div>
+</section>
