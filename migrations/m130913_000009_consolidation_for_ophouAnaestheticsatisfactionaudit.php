@@ -32,6 +32,25 @@ class m130913_000009_consolidation_for_ophouAnaestheticsatisfactionaudit extends
 
 	public function up()
 	{
+		if (!$this->consolidate(
+			array(
+				"m121010_085427_event_type_OphAuAnaestheticsatisfactionaudit",
+				"m121010_124852_create_anaesthetist_table",
+				"m121011_093438_event_type_OphAuAnaestheticsatisfactionaudit",
+				"m121011_161035_add_null_anaesthetist_options",
+				"m121016_152255_remove_ramsay",
+				"m121016_155738_fix_avpu",
+				"m121016_164501_add_notes_element",
+				"m121017_144604_change_to_outcomes_type",
+			)
+		)
+		) {
+			$this->createTables();
+		}
+	}
+
+	public function createTables()
+	{
 		$this->setData();
 		//disable foreign keys check
 		$this->execute("SET foreign_key_checks = 0");
