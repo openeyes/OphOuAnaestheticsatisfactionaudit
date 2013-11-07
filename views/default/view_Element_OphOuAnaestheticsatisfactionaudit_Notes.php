@@ -16,21 +16,30 @@
  * @copyright Copyright (c) 2011-2013, OpenEyes Foundation
  * @license http://www.gnu.org/licenses/gpl-3.0.html The GNU General Public License V3.0
  */
- ?>
+?>
 
-<h4 class="elementTypeName"><?php  echo $element->elementType->name ?></h4>
-
-<table class="subtleWhite normalText">
-	<tbody>
+<section class="element">
+	<header class="element-header">
+		<h3 class="element-title"><?php  echo $element->elementType->name ?></h3>
+	</header>
+	<div class="element-data">
 		<?php if ($element->comments) {?>
-		<tr>
-			<td width="30%"><?php echo CHtml::encode($element->getAttributeLabel('comments'))?></td>
-			<td><span class="big"><?php echo CHtml::encode($element->comments)?></span></td>
-		</tr>
-		<?php } ?>
-		<tr>
-			<td width="30%"><?php echo CHtml::encode($element->getAttributeLabel('ready_for_discharge_id'))?></td>
-			<td><span class="big"><?php echo $element->ready_for_discharge ? $element->ready_for_discharge->name : 'None'?></span></td>
-		</tr>
-	</tbody>
-</table>
+			<div class="row data-row">
+				<div class="large-2 column">
+					<div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('comments'))?></div>
+				</div>
+				<div class="large-10 column">
+					<div class="data-value"><?php echo CHtml::encode($element->comments)?></div>
+				</div>
+			</div>
+		<?php }?>
+		<div class="row data-row">
+			<div class="large-2 column">
+				<div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('ready_for_discharge_id'))?></div>
+			</div>
+			<div class="large-10 column">
+				<div class="data-value"><?php echo $element->ready_for_discharge ? $element->ready_for_discharge->name : 'None'?></div>
+			</div>
+		</div>
+	</div>
+</section>

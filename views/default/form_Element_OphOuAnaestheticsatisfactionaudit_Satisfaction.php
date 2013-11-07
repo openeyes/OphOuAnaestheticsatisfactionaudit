@@ -18,34 +18,36 @@
  */
 ?>
 
-<section class="element">
+<section class="element <?php echo $element->elementType->class_name?>"
+	data-element-type-id="<?php echo $element->elementType->id?>"
+	data-element-type-class="<?php echo $element->elementType->class_name?>"
+	data-element-type-name="<?php echo $element->elementType->name?>"
+	data-element-display-order="<?php echo $element->elementType->display_order?>">
 	<header class="element-header">
-		<h3 class="element-title"><?php echo $element->elementType->name?></h3>
+		<h3 class="element-title"><?php echo $element->elementType->name; ?></h3>
 	</header>
-	<div class="element-data">
-		<div class="row data-row">
-			<div class="large-2 column">
-				<div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('pain'))?></div>
-			</div>
-			<div class="large-10 column">
-				<div class="data-value"><?php echo $element->pain?></div>
-			</div>
-		</div>
-		<div class="row data-row">
-			<div class="large-2 column">
-				<div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('nausea'))?></div>
-			</div>
-			<div class="large-10 column">
-				<div class="data-value"><?php echo $element->nausea?></div>
-			</div>
-		</div>
-		<div class="row data-row">
-			<div class="large-2 column">
-				<div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('vomited'))?></div>
-			</div>
-			<div class="large-10 column">
-				<div class="data-value"><?php echo $element->vomited ? 'Yes' : 'No'?></div>
+
+	<div class="element-fields">
+		<?php echo $form->slider($element, 'pain', array(
+				'min' => 0,
+				'max' => 10,
+				'step' => 1,
+				'width' => 340,
+				'painScale' => $this->patient->isChild() ? $this->assetPath."/img/painscale_child.png" : $this->assetPath."/img/painscale_adult.png"
+			),
+			array('class' => 'slider painscale')
+		)?>
+
+		<?php echo $form->slider($element, 'nausea', array('min' => 0, 'max' => 3, 'step' => 1, 'width' => 200))?>
+
+		<div class="row field-row">
+			<div class="large-10 large-offset-2 column">
+				<div class="field-info">
+					<em>0 - none, 1 - mild, 2 - moderate, 3 - severe</em>
+				</div>
 			</div>
 		</div>
+
+		<?php echo $form->checkBox($element, 'vomited', array())?>
 	</div>
 </section>

@@ -16,15 +16,21 @@
  * @copyright Copyright (c) 2011-2013, OpenEyes Foundation
  * @license http://www.gnu.org/licenses/gpl-3.0.html The GNU General Public License V3.0
  */
- ?>
+?>
 
-<h4 class="elementTypeName"><?php  echo $element->elementType->name ?></h4>
+<section class="element">
+	<header class="element-header">
+		<h3 class="element-title"><?php echo $element->elementType->name?></h3>
+	</header>
 
-<table class="subtleWhite normalText">
-	<tbody>
-		<tr>
-			<td width="30%"><?php echo CHtml::encode($element->getAttributeLabel('anaesthetist_id'))?></td>
-			<td><span class="big"><?php if ($element->anaesthetist) { echo $element->anaesthetist->fullNameAndTitle; } elseif ($element->non_consultant) { echo $element::NONCONSULTANT_DISP; } else { echo $element::NOANAESTHETIST_DISP; } ?></span></td>
-		</tr>
-	</tbody>
-</table>
+	<div class="element-data">
+		<div class="row data-row">
+			<div class="large-2 column">
+				<div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('anaesthetist_id'))?></div>
+			</div>
+			<div class="large-10 column">
+				<div class="data-value"><?php if ($element->anaesthetist) { echo $element->anaesthetist->fullNameAndTitle; } elseif ($element->non_consultant) { echo $element::NONCONSULTANT_DISP; } else { echo $element::NOANAESTHETIST_DISP; } ?></div>
+			</div>
+		</div>
+	</div>
+</section>

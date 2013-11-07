@@ -16,9 +16,9 @@
  * @copyright Copyright (c) 2011-2013, OpenEyes Foundation
  * @license http://www.gnu.org/licenses/gpl-3.0.html The GNU General Public License V3.0
  */
- ?>
-<div class="<?php echo $element->elementType->class_name?>">
-	<h4 class="elementTypeName"><?php  echo $element->elementType->name; ?></h4>
-
-	<?php echo $form->dropDownList($element, 'anaesthetist_select', CHtml::listData($element->anaesthetistSelectList(),'id','text'),array('empty'=>'- Please select -'))?>
-</div>
+?>
+<?php $this->renderPartial(
+		'form_' . get_class($element),
+		array('element' => $element, 'data' => $data, 'form' => $form),
+		false, false
+)?>

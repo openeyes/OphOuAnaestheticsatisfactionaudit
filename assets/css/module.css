@@ -1,3 +1,4 @@
+/** Anaesthetic Satisfaction Audit */
 /**
  * OpenEyes
  *
@@ -15,25 +16,15 @@
  * @copyright Copyright (c) 2011-2013, OpenEyes Foundation
  * @license http://www.gnu.org/licenses/gpl-3.0.html The GNU General Public License V3.0
  */
-
-#event_content.watermarkBox { background-image: url(../img/watermark.png); background-position: -5px 0; background-repeat: repeat-y; border-color: #f0906f; }
-#event_content h3.withEventIcon { background:transparent url(../img/medium.png) center left no-repeat; }
-
-@CHARSET "UTF-8";
-
-.field_key {
-	margin-left: 203px;
+/* line 2, ../sass/components/_event.scss */
+.event.ophouanaestheticsatisfactionaudit {
+  border-color: #f0906f;
 }
-
-input.widgetSlider {
-	width: 350px;
+/* line 4, ../sass/components/_event.scss */
+.event.ophouanaestheticsatisfactionaudit .event-content {
+  background-image: url('../img/new/watermark.png');
 }
-
-input.widgetSlider#Element_OphOuAnaestheticsatisfactionaudit_Satisfaction_nausea {
-	width: 120px;
+/* line 7, ../sass/components/_event.scss */
+.event.ophouanaestheticsatisfactionaudit .event-title {
+  background-image: url('../img/new/medium.png');
 }
-
-
-
-event_content.watermarkBox { background-image: url(../img/watermark.png); background-position: -5px 0; background-repeat: repeat-y; border-color: #fdcc56; }
-event_content h3.withEventIcon { background:transparent url(../img/medium.png) center left no-repeat; }
