@@ -21,7 +21,7 @@
 <?php $this->beginContent('//patient/event_container'); ?>
 	<?php
 		$this->breadcrumbs=array($this->module->id);
-		$this->event_actions[] = EventAction::button('Save', 'save', array('level' => 'secondary'), array('class'=>'button small', 'form'=>'clinical-create'));
+		$this->event_actions[] = EventAction::button('Save', 'save', array('level' => 'save'), array('form'=>'anaesthetic-update'));
 	?>
 
 	<h2 class="event-title"><?php echo $this->event_type->name ?></h2>
@@ -29,7 +29,7 @@
 	<?php $this->renderPartial('//base/_messages'); ?>
 
 	<?php $form = $this->beginWidget('BaseEventTypeCActiveForm', array(
-		'id'=>'clinical-create',
+		'id'=>'anaesthetic-update',
 		'enableAjaxValidation'=>false,
 		'layoutColumns' => array(
 			'label' => 2,
