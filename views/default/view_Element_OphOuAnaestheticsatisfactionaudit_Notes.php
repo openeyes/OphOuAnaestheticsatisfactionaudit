@@ -29,7 +29,7 @@
 					<div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('comments'))?></div>
 				</div>
 				<div class="large-10 column">
-					<div class="data-value"><?php echo CHtml::encode($element->comments)?></div>
+					<div class="data-value"><?php echo Yii::app()->format->Ntext($element->comments)?></div>
 				</div>
 			</div>
 		<?php }?>
