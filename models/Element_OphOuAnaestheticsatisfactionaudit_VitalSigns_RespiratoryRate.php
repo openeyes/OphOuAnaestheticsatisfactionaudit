@@ -33,7 +33,7 @@
  * @property User $usermodified
  */
 
-class Element_OphOuAnaestheticsatisfactionaudit_VitalSigns_RespiratoryRate extends BaseActiveRecord
+class Element_OphOuAnaestheticsatisfactionaudit_VitalSigns_RespiratoryRate extends BaseActiveRecordVersioned
 {
 	/**
 	 * Returns the static model of the specified AR class.
