@@ -100,7 +100,7 @@ class m130913_000009_consolidation_for_ophouAnaestheticsatisfactionaudit extends
 		$this->execute("CREATE TABLE `et_ophouanaestheticsataudit_notes` (
 			  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
 			  `event_id` int(10) unsigned NOT NULL,
-			  `comments` text COLLATE utf8_bin,
+			  `comments` text,
 			  `ready_for_discharge_id` int(10) unsigned NOT NULL,
 			  `last_modified_user_id` int(10) unsigned NOT NULL DEFAULT '1',
 			  `last_modified_date` datetime NOT NULL DEFAULT '1901-01-01 00:00:00',
@@ -120,7 +120,7 @@ class m130913_000009_consolidation_for_ophouAnaestheticsatisfactionaudit extends
 
 		$this->execute("CREATE TABLE `et_ophouanaestheticsataudit_notes_ready_for_discharge` (
 			  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-			  `name` varchar(128) COLLATE utf8_bin NOT NULL,
+			  `name` varchar(128) NOT NULL,
 			  `display_order` int(10) unsigned NOT NULL DEFAULT '1',
 			  `last_modified_user_id` int(10) unsigned NOT NULL DEFAULT '1',
 			  `last_modified_date` datetime NOT NULL DEFAULT '1901-01-01 00:00:00',
@@ -191,7 +191,7 @@ class m130913_000009_consolidation_for_ophouAnaestheticsatisfactionaudit extends
 
 		$this->execute("CREATE TABLE `et_ophouanaestheticsataudit_vitalsigns_body_temp` (
 			  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-			  `name` varchar(128) COLLATE utf8_bin NOT NULL,
+			  `name` varchar(128) NOT NULL,
 			  `display_order` int(10) unsigned NOT NULL DEFAULT '1',
 			  `score` int(10) unsigned NOT NULL,
 			  `last_modified_user_id` int(10) unsigned NOT NULL DEFAULT '1',
@@ -208,7 +208,7 @@ class m130913_000009_consolidation_for_ophouAnaestheticsatisfactionaudit extends
 
 		$this->execute("CREATE TABLE `et_ophouanaestheticsataudit_vitalsigns_conscious_lvl` (
 			  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-			  `name` varchar(128) COLLATE utf8_bin NOT NULL,
+			  `name` varchar(128) NOT NULL,
 			  `display_order` int(10) unsigned NOT NULL DEFAULT '1',
 			  `score` int(10) unsigned NOT NULL,
 			  `last_modified_user_id` int(10) unsigned NOT NULL DEFAULT '1',
@@ -225,7 +225,7 @@ class m130913_000009_consolidation_for_ophouAnaestheticsatisfactionaudit extends
 
 		$this->execute("CREATE TABLE `et_ophouanaestheticsataudit_vitalsigns_heart_rate` (
 			  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-			  `name` varchar(128) COLLATE utf8_bin NOT NULL,
+			  `name` varchar(128) NOT NULL,
 			  `display_order` int(10) unsigned NOT NULL DEFAULT '1',
 			  `score` int(10) unsigned NOT NULL,
 			  `last_modified_user_id` int(10) unsigned NOT NULL DEFAULT '1',
@@ -242,7 +242,7 @@ class m130913_000009_consolidation_for_ophouAnaestheticsatisfactionaudit extends
 
 		$this->execute("CREATE TABLE `et_ophouanaestheticsataudit_vitalsigns_oxygen_saturation` (
 			  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-			  `name` varchar(128) COLLATE utf8_bin NOT NULL,
+			  `name` varchar(128) NOT NULL,
 			  `display_order` int(10) unsigned NOT NULL DEFAULT '1',
 			  `score` int(10) unsigned NOT NULL,
 			  `last_modified_user_id` int(10) unsigned NOT NULL DEFAULT '1',
@@ -259,7 +259,7 @@ class m130913_000009_consolidation_for_ophouAnaestheticsatisfactionaudit extends
 
 		$this->execute("CREATE TABLE `et_ophouanaestheticsataudit_vitalsigns_respiratory_rate` (
 			  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-			  `name` varchar(128) COLLATE utf8_bin NOT NULL,
+			  `name` varchar(128) NOT NULL,
 			  `display_order` int(10) unsigned NOT NULL DEFAULT '1',
 			  `score` int(10) unsigned NOT NULL,
 			  `last_modified_user_id` int(10) unsigned NOT NULL DEFAULT '1',
@@ -276,7 +276,7 @@ class m130913_000009_consolidation_for_ophouAnaestheticsatisfactionaudit extends
 
 		$this->execute("CREATE TABLE `et_ophouanaestheticsataudit_vitalsigns_systolic` (
 			  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-			  `name` varchar(128) COLLATE utf8_bin NOT NULL,
+			  `name` varchar(128) NOT NULL,
 			  `display_order` int(10) unsigned NOT NULL DEFAULT '1',
 			  `score` int(10) unsigned NOT NULL,
 			  `last_modified_user_id` int(10) unsigned NOT NULL DEFAULT '1',
