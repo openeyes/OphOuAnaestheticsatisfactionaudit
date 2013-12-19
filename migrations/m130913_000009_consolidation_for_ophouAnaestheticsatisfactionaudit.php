@@ -23,10 +23,10 @@ class m130913_000009_consolidation_for_ophouAnaestheticsatisfactionaudit extends
 
 	public function setData(){
 		$this->element_types = array(
-			'Element_OphOuAnaestheticsatisfactionaudit_Anaesthetist' => array('name' => 'Anaesthetist'),
-			'Element_OphOuAnaestheticsatisfactionaudit_Satisfaction' => array('name' => 'Satisfaction'),
-			'Element_OphOuAnaestheticsatisfactionaudit_VitalSigns' => array('name' => 'Vital Signs'),
-			'Element_OphOuAnaestheticsatisfactionaudit_Notes' => array('name' => 'Notes'),
+			'Element_OphOuAnaestheticsatisfactionaudit_Anaesthetist' => array('name' => 'Anaesthetist','display_order' => 10),
+			'Element_OphOuAnaestheticsatisfactionaudit_Satisfaction' => array('name' => 'Satisfaction','display_order' => 20),
+			'Element_OphOuAnaestheticsatisfactionaudit_VitalSigns' => array('name' => 'Vital Signs','display_order' => 30),
+			'Element_OphOuAnaestheticsatisfactionaudit_Notes' => array('name' => 'Notes','display_order' => 40),
 		);
 	}
 
