@@ -24,8 +24,6 @@
 		$this->event_actions[] = EventAction::button('Save', 'save', array('level' => 'save'), array('form'=>'anaesthetic-update'));
 	?>
 
-	<h2 class="event-title"><?php echo $this->event_type->name ?></h2>
-
 	<?php $this->renderPartial('//base/_messages'); ?>
 
 	<?php $form = $this->beginWidget('BaseEventTypeCActiveForm', array(
@@ -38,7 +36,7 @@
 	));
 	?>
 		<?php $this->displayErrors($errors)?>
-		<?php $this->renderDefaultElements($this->action->id, $form)?>
+		<?php $this->renderOpenElements($this->action->id, $form)?>
 		<?php $this->renderOptionalElements($this->action->id, $form)?>
 		<?php $this->displayErrors($errors, true)?>
 

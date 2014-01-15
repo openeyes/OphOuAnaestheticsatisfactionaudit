@@ -79,7 +79,7 @@ class m130913_000009_consolidation_for_ophouAnaestheticsatisfactionaudit extends
 			  CONSTRAINT `et_ophauanaestheticsataudit_anaesthetis_cui_fk` FOREIGN KEY (`created_user_id`) REFERENCES `user` (`id`),
 			  CONSTRAINT `et_ophauanaestheticsataudit_anaesthetis_ev_fk` FOREIGN KEY (`event_id`) REFERENCES `event` (`id`),
 			  CONSTRAINT `et_ophauanaestheticsataudit_anaesthetis_lmui_fk` FOREIGN KEY (`last_modified_user_id`) REFERENCES `user` (`id`)
-			) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin
+			) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci
 		");
 
 		$this->execute("CREATE TABLE `et_ophouanaestheticsataudit_anaesthetist_lookup` (
@@ -94,7 +94,7 @@ class m130913_000009_consolidation_for_ophouAnaestheticsatisfactionaudit extends
 			  CONSTRAINT `et_ophauanaestheticsataudit_anaesthetist_lookup_created_user_fk` FOREIGN KEY (`created_user_id`) REFERENCES `user` (`id`),
 			  CONSTRAINT `et_ophauanaestheticsataudit_anaesthetist_lookup_last_mod_user_fk` FOREIGN KEY (`last_modified_user_id`) REFERENCES `user` (`id`),
 			  CONSTRAINT `et_ophauanaestheticsataudit_anaesthetist_lookup_user_id_fk` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
-			) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin
+			) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci
 		");
 
 		$this->execute("CREATE TABLE `et_ophouanaestheticsataudit_notes` (
@@ -115,7 +115,7 @@ class m130913_000009_consolidation_for_ophouAnaestheticsatisfactionaudit extends
 			  CONSTRAINT `et_auophanaestheticsataudit_notes_cui_fk` FOREIGN KEY (`created_user_id`) REFERENCES `user` (`id`),
 			  CONSTRAINT `et_auophanaestheticsataudit_notes_ev_fk` FOREIGN KEY (`event_id`) REFERENCES `event` (`id`),
 			  CONSTRAINT `et_auophanaestheticsataudit_notes_ready_for_discharge_fk` FOREIGN KEY (`ready_for_discharge_id`) REFERENCES `et_ophouanaestheticsataudit_notes_ready_for_discharge` (`id`)
-			) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin
+			) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci
 		");
 
 		$this->execute("CREATE TABLE `et_ophouanaestheticsataudit_notes_ready_for_discharge` (
@@ -131,7 +131,7 @@ class m130913_000009_consolidation_for_ophouAnaestheticsatisfactionaudit extends
 			  KEY `et_auophanaestheticsataudit_notes_ready_for_discharge_cui_fk` (`created_user_id`),
 			  CONSTRAINT `et_auophanaestheticsataudit_notes_ready_for_discharge_lmui_fk` FOREIGN KEY (`last_modified_user_id`) REFERENCES `user` (`id`),
 			  CONSTRAINT `et_auophanaestheticsataudit_notes_ready_for_discharge_cui_fk` FOREIGN KEY (`created_user_id`) REFERENCES `user` (`id`)
-			) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_bin
+			) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci
 		");
 
 		$this->execute("CREATE TABLE `et_ophouanaestheticsataudit_satisfactio` (
@@ -151,7 +151,7 @@ class m130913_000009_consolidation_for_ophouAnaestheticsatisfactionaudit extends
 			  CONSTRAINT `et_ophauanaestheticsataudit_satisfactio_lmui_fk` FOREIGN KEY (`last_modified_user_id`) REFERENCES `user` (`id`),
 			  CONSTRAINT `et_ophauanaestheticsataudit_satisfactio_cui_fk` FOREIGN KEY (`created_user_id`) REFERENCES `user` (`id`),
 			  CONSTRAINT `et_ophauanaestheticsataudit_satisfactio_ev_fk` FOREIGN KEY (`event_id`) REFERENCES `event` (`id`)
-			) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin
+			) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci
 		");
 
 		$this->execute("CREATE TABLE `et_ophouanaestheticsataudit_vitalsigns` (
@@ -186,7 +186,7 @@ class m130913_000009_consolidation_for_ophouAnaestheticsatisfactionaudit extends
 			  CONSTRAINT `et_ophauanaestheticsataudit_vitalsigns_oxygen_saturation_fk` FOREIGN KEY (`oxygen_saturation_id`) REFERENCES `et_ophouanaestheticsataudit_vitalsigns_oxygen_saturation` (`id`),
 			  CONSTRAINT `et_ophauanaestheticsataudit_vitalsigns_respiratory_rate_fk` FOREIGN KEY (`respiratory_rate_id`) REFERENCES `et_ophouanaestheticsataudit_vitalsigns_respiratory_rate` (`id`),
 			  CONSTRAINT `et_ophauanaestheticsataudit_vitalsigns_systolic_fk` FOREIGN KEY (`systolic_id`) REFERENCES `et_ophouanaestheticsataudit_vitalsigns_systolic` (`id`)
-			) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin
+			) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci
 		");
 
 		$this->execute("CREATE TABLE `et_ophouanaestheticsataudit_vitalsigns_body_temp` (
@@ -203,7 +203,7 @@ class m130913_000009_consolidation_for_ophouAnaestheticsatisfactionaudit extends
 			  KEY `et_ophauanaestheticsataudit_vitalsigns_body_temp_cui_fk` (`created_user_id`),
 			  CONSTRAINT `et_ophauanaestheticsataudit_vitalsigns_body_temp_lmui_fk` FOREIGN KEY (`last_modified_user_id`) REFERENCES `user` (`id`),
 			  CONSTRAINT `et_ophauanaestheticsataudit_vitalsigns_body_temp_cui_fk` FOREIGN KEY (`created_user_id`) REFERENCES `user` (`id`)
-			) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_bin
+			) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci
 		");
 
 		$this->execute("CREATE TABLE `et_ophouanaestheticsataudit_vitalsigns_conscious_lvl` (
@@ -220,7 +220,7 @@ class m130913_000009_consolidation_for_ophouAnaestheticsatisfactionaudit extends
 			  KEY `et_ophauanaestheticsataudit_vitalsigns_conscious_lvl_cui_fk` (`created_user_id`),
 			  CONSTRAINT `et_ophauanaestheticsataudit_vitalsigns_conscious_lvl_lmui_fk` FOREIGN KEY (`last_modified_user_id`) REFERENCES `user` (`id`),
 			  CONSTRAINT `et_ophauanaestheticsataudit_vitalsigns_conscious_lvl_cui_fk` FOREIGN KEY (`created_user_id`) REFERENCES `user` (`id`)
-			) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_bin
+			) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci
 		");
 
 		$this->execute("CREATE TABLE `et_ophouanaestheticsataudit_vitalsigns_heart_rate` (
@@ -237,7 +237,7 @@ class m130913_000009_consolidation_for_ophouAnaestheticsatisfactionaudit extends
 			  KEY `et_ophauanaestheticsataudit_vitalsigns_heart_rate_cui_fk` (`created_user_id`),
 			  CONSTRAINT `et_ophauanaestheticsataudit_vitalsigns_heart_rate_lmui_fk` FOREIGN KEY (`last_modified_user_id`) REFERENCES `user` (`id`),
 			  CONSTRAINT `et_ophauanaestheticsataudit_vitalsigns_heart_rate_cui_fk` FOREIGN KEY (`created_user_id`) REFERENCES `user` (`id`)
-			) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_bin
+			) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci
 		");
 
 		$this->execute("CREATE TABLE `et_ophouanaestheticsataudit_vitalsigns_oxygen_saturation` (
@@ -254,7 +254,7 @@ class m130913_000009_consolidation_for_ophouAnaestheticsatisfactionaudit extends
 			  KEY `et_ophauanaestheticsataudit_vitalsigns_oxygen_saturation_cui_fk` (`created_user_id`),
 			  CONSTRAINT `et_ophauanaestheticsataudit_vitalsigns_oxygen_saturation_lmui_fk` FOREIGN KEY (`last_modified_user_id`) REFERENCES `user` (`id`),
 			  CONSTRAINT `et_ophauanaestheticsataudit_vitalsigns_oxygen_saturation_cui_fk` FOREIGN KEY (`created_user_id`) REFERENCES `user` (`id`)
-			) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_bin
+			) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci
 		");
 
 		$this->execute("CREATE TABLE `et_ophouanaestheticsataudit_vitalsigns_respiratory_rate` (
@@ -271,7 +271,7 @@ class m130913_000009_consolidation_for_ophouAnaestheticsatisfactionaudit extends
 			  KEY `et_ophauanaestheticsataudit_vitalsigns_respiratory_rate_cui_fk` (`created_user_id`),
 			  CONSTRAINT `et_ophauanaestheticsataudit_vitalsigns_respiratory_rate_lmui_fk` FOREIGN KEY (`last_modified_user_id`) REFERENCES `user` (`id`),
 			  CONSTRAINT `et_ophauanaestheticsataudit_vitalsigns_respiratory_rate_cui_fk` FOREIGN KEY (`created_user_id`) REFERENCES `user` (`id`)
-			) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_bin
+			) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci
 		");
 
 		$this->execute("CREATE TABLE `et_ophouanaestheticsataudit_vitalsigns_systolic` (
@@ -288,7 +288,7 @@ class m130913_000009_consolidation_for_ophouAnaestheticsatisfactionaudit extends
 			  KEY `et_ophauanaestheticsataudit_vitalsigns_systolic_cui_fk` (`created_user_id`),
 			  CONSTRAINT `et_ophauanaestheticsataudit_vitalsigns_systolic_lmui_fk` FOREIGN KEY (`last_modified_user_id`) REFERENCES `user` (`id`),
 			  CONSTRAINT `et_ophauanaestheticsataudit_vitalsigns_systolic_cui_fk` FOREIGN KEY (`created_user_id`) REFERENCES `user` (`id`)
-			) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_bin
+			) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci
 		");
 
 		$migrations_path = dirname(__FILE__);

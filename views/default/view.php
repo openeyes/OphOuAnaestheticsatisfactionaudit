@@ -19,14 +19,6 @@
 
 $this->beginContent('//patient/event_container');
 ?>
-	<?php
-		// Event actions
-		if ($this->canPrint()) {
-			// $this->event_actions[] = EventAction::button('Print', 'print',null,array('class'=>'button small'));
-		}
-	?>
-
 	<?php $this->renderDefaultElements($this->action->id)?>
 	<?php $this->renderOptionalElements($this->action->id)?>
-
 <?php $this->endContent() ;?>
