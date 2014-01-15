@@ -10,7 +10,7 @@ class m131205_102010_table_versioning extends CDbMigration
 
 		$this->addColumn('et_ophouanaestheticsataudit_anaesthetist_lookup','id','int(10) unsigned NOT NULL');
 
-		foreach (Yii::app()->db->createCommand()->select("*")->from("et_ophouanaestheticsataudit_anaesthetist_lookup")->queryAll() as $i => $row) {
+		foreach ($this->dbConnection->createCommand()->select("*")->from("et_ophouanaestheticsataudit_anaesthetist_lookup")->queryAll() as $i => $row) {
 			$this->update('et_ophouanaestheticsataudit_anaesthetist_lookup',array('id' => $i+1),"user_id = {$row['user_id']}");
 		}
 
