@@ -40,7 +40,7 @@ CREATE TABLE `et_ophouanaestheticsataudit_anaesthetis_version` (
 	CONSTRAINT `acv_et_ophauanaestheticsataudit_anaesthetis_cui_fk` FOREIGN KEY (`created_user_id`) REFERENCES `user` (`id`),
 	CONSTRAINT `acv_et_ophauanaestheticsataudit_anaesthetis_ev_fk` FOREIGN KEY (`event_id`) REFERENCES `event` (`id`),
 	CONSTRAINT `acv_et_ophauanaestheticsataudit_anaesthetis_lmui_fk` FOREIGN KEY (`last_modified_user_id`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci
 		");
 
 		$this->alterColumn('et_ophouanaestheticsataudit_anaesthetis_version','id','int(10) unsigned NOT NULL');
@@ -70,7 +70,7 @@ CREATE TABLE `et_ophouanaestheticsataudit_anaesthetist_lookup_version` (
 	CONSTRAINT `acv_et_ophouanaestheticsataudit_anaesthetist_lookup` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`),
 	CONSTRAINT `acv_phauanaestheticsataudit_anaesthetist_lookup_created_user_fk` FOREIGN KEY (`created_user_id`) REFERENCES `user` (`id`),
 	CONSTRAINT `acv_phauanaestheticsataudit_anaesthetist_lookup_last_mod_user_fk` FOREIGN KEY (`last_modified_user_id`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci
 		");
 
 		$this->alterColumn('et_ophouanaestheticsataudit_anaesthetist_lookup_version','id','int(10) unsigned NOT NULL');
@@ -89,7 +89,7 @@ CREATE TABLE `et_ophouanaestheticsataudit_anaesthetist_lookup_version` (
 CREATE TABLE `et_ophouanaestheticsataudit_notes_version` (
 	`id` int(10) unsigned NOT NULL AUTO_INCREMENT,
 	`event_id` int(10) unsigned NOT NULL,
-	`comments` text COLLATE utf8_bin,
+	`comments` text,
 	`ready_for_discharge_id` int(10) unsigned NOT NULL,
 	`last_modified_user_id` int(10) unsigned NOT NULL DEFAULT '1',
 	`last_modified_date` datetime NOT NULL DEFAULT '1901-01-01 00:00:00',
@@ -104,7 +104,7 @@ CREATE TABLE `et_ophouanaestheticsataudit_notes_version` (
 	CONSTRAINT `acv_et_auophanaestheticsataudit_notes_cui_fk` FOREIGN KEY (`created_user_id`) REFERENCES `user` (`id`),
 	CONSTRAINT `acv_et_auophanaestheticsataudit_notes_ev_fk` FOREIGN KEY (`event_id`) REFERENCES `event` (`id`),
 	CONSTRAINT `acv_et_auophanaestheticsataudit_notes_ready_for_discharge_fk` FOREIGN KEY (`ready_for_discharge_id`) REFERENCES `et_ophouanaestheticsataudit_notes_ready_for_discharge` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci
 		");
 
 		$this->alterColumn('et_ophouanaestheticsataudit_notes_version','id','int(10) unsigned NOT NULL');
@@ -122,7 +122,7 @@ CREATE TABLE `et_ophouanaestheticsataudit_notes_version` (
 		$this->execute("
 CREATE TABLE `et_ophouanaestheticsataudit_notes_ready_for_discharge_version` (
 	`id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-	`name` varchar(128) COLLATE utf8_bin NOT NULL,
+	`name` varchar(128) NOT NULL,
 	`display_order` int(10) unsigned NOT NULL DEFAULT '1',
 	`last_modified_user_id` int(10) unsigned NOT NULL DEFAULT '1',
 	`last_modified_date` datetime NOT NULL DEFAULT '1901-01-01 00:00:00',
@@ -133,7 +133,7 @@ CREATE TABLE `et_ophouanaestheticsataudit_notes_ready_for_discharge_version` (
 	KEY `acv_et_auophanaestheticsataudit_notes_ready_for_discharge_cui_fk` (`created_user_id`),
 	CONSTRAINT `acv_uophanaestheticsataudit_notes_ready_for_discharge_lmui_fk` FOREIGN KEY (`last_modified_user_id`) REFERENCES `user` (`id`),
 	CONSTRAINT `acv_et_auophanaestheticsataudit_notes_ready_for_discharge_cui_fk` FOREIGN KEY (`created_user_id`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_bin
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci
 		");
 
 		$this->alterColumn('et_ophouanaestheticsataudit_notes_ready_for_discharge_version','id','int(10) unsigned NOT NULL');
@@ -166,7 +166,7 @@ CREATE TABLE `et_ophouanaestheticsataudit_satisfactio_version` (
 	CONSTRAINT `acv_et_ophauanaestheticsataudit_satisfactio_lmui_fk` FOREIGN KEY (`last_modified_user_id`) REFERENCES `user` (`id`),
 	CONSTRAINT `acv_et_ophauanaestheticsataudit_satisfactio_cui_fk` FOREIGN KEY (`created_user_id`) REFERENCES `user` (`id`),
 	CONSTRAINT `acv_et_ophauanaestheticsataudit_satisfactio_ev_fk` FOREIGN KEY (`event_id`) REFERENCES `event` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci
 		");
 
 		$this->alterColumn('et_ophouanaestheticsataudit_satisfactio_version','id','int(10) unsigned NOT NULL');
@@ -214,7 +214,7 @@ CREATE TABLE `et_ophouanaestheticsataudit_vitalsigns_version` (
 	CONSTRAINT `acv_et_ophauanaestheticsataudit_vitalsigns_oxygen_saturation_fk` FOREIGN KEY (`oxygen_saturation_id`) REFERENCES `et_ophouanaestheticsataudit_vitalsigns_oxygen_saturation` (`id`),
 	CONSTRAINT `acv_et_ophauanaestheticsataudit_vitalsigns_respiratory_rate_fk` FOREIGN KEY (`respiratory_rate_id`) REFERENCES `et_ophouanaestheticsataudit_vitalsigns_respiratory_rate` (`id`),
 	CONSTRAINT `acv_et_ophauanaestheticsataudit_vitalsigns_systolic_fk` FOREIGN KEY (`systolic_id`) REFERENCES `et_ophouanaestheticsataudit_vitalsigns_systolic` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci
 		");
 
 		$this->alterColumn('et_ophouanaestheticsataudit_vitalsigns_version','id','int(10) unsigned NOT NULL');
@@ -232,7 +232,7 @@ CREATE TABLE `et_ophouanaestheticsataudit_vitalsigns_version` (
 		$this->execute("
 CREATE TABLE `et_ophouanaestheticsataudit_vitalsigns_body_temp_version` (
 	`id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-	`name` varchar(128) COLLATE utf8_bin NOT NULL,
+	`name` varchar(128) NOT NULL,
 	`display_order` int(10) unsigned NOT NULL DEFAULT '1',
 	`score` int(10) unsigned NOT NULL,
 	`last_modified_user_id` int(10) unsigned NOT NULL DEFAULT '1',
@@ -244,7 +244,7 @@ CREATE TABLE `et_ophouanaestheticsataudit_vitalsigns_body_temp_version` (
 	KEY `acv_et_ophauanaestheticsataudit_vitalsigns_body_temp_cui_fk` (`created_user_id`),
 	CONSTRAINT `acv_et_ophauanaestheticsataudit_vitalsigns_body_temp_lmui_fk` FOREIGN KEY (`last_modified_user_id`) REFERENCES `user` (`id`),
 	CONSTRAINT `acv_et_ophauanaestheticsataudit_vitalsigns_body_temp_cui_fk` FOREIGN KEY (`created_user_id`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_bin
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci
 		");
 
 		$this->alterColumn('et_ophouanaestheticsataudit_vitalsigns_body_temp_version','id','int(10) unsigned NOT NULL');
@@ -262,7 +262,7 @@ CREATE TABLE `et_ophouanaestheticsataudit_vitalsigns_body_temp_version` (
 		$this->execute("
 CREATE TABLE `et_ophouanaestheticsataudit_vitalsigns_conscious_lvl_version` (
 	`id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-	`name` varchar(128) COLLATE utf8_bin NOT NULL,
+	`name` varchar(128) NOT NULL,
 	`display_order` int(10) unsigned NOT NULL DEFAULT '1',
 	`score` int(10) unsigned NOT NULL,
 	`last_modified_user_id` int(10) unsigned NOT NULL DEFAULT '1',
@@ -274,7 +274,7 @@ CREATE TABLE `et_ophouanaestheticsataudit_vitalsigns_conscious_lvl_version` (
 	KEY `acv_et_ophauanaestheticsataudit_vitalsigns_conscious_lvl_cui_fk` (`created_user_id`),
 	CONSTRAINT `acv_et_ophauanaestheticsataudit_vitalsigns_conscious_lvl_lmui_fk` FOREIGN KEY (`last_modified_user_id`) REFERENCES `user` (`id`),
 	CONSTRAINT `acv_et_ophauanaestheticsataudit_vitalsigns_conscious_lvl_cui_fk` FOREIGN KEY (`created_user_id`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_bin
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci
 		");
 
 		$this->alterColumn('et_ophouanaestheticsataudit_vitalsigns_conscious_lvl_version','id','int(10) unsigned NOT NULL');
@@ -292,7 +292,7 @@ CREATE TABLE `et_ophouanaestheticsataudit_vitalsigns_conscious_lvl_version` (
 		$this->execute("
 CREATE TABLE `et_ophouanaestheticsataudit_vitalsigns_heart_rate_version` (
 	`id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-	`name` varchar(128) COLLATE utf8_bin NOT NULL,
+	`name` varchar(128) NOT NULL,
 	`display_order` int(10) unsigned NOT NULL DEFAULT '1',
 	`score` int(10) unsigned NOT NULL,
 	`last_modified_user_id` int(10) unsigned NOT NULL DEFAULT '1',
@@ -304,7 +304,7 @@ CREATE TABLE `et_ophouanaestheticsataudit_vitalsigns_heart_rate_version` (
 	KEY `acv_et_ophauanaestheticsataudit_vitalsigns_heart_rate_cui_fk` (`created_user_id`),
 	CONSTRAINT `acv_et_ophauanaestheticsataudit_vitalsigns_heart_rate_lmui_fk` FOREIGN KEY (`last_modified_user_id`) REFERENCES `user` (`id`),
 	CONSTRAINT `acv_et_ophauanaestheticsataudit_vitalsigns_heart_rate_cui_fk` FOREIGN KEY (`created_user_id`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_bin
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci
 		");
 
 		$this->alterColumn('et_ophouanaestheticsataudit_vitalsigns_heart_rate_version','id','int(10) unsigned NOT NULL');
@@ -322,7 +322,7 @@ CREATE TABLE `et_ophouanaestheticsataudit_vitalsigns_heart_rate_version` (
 		$this->execute("
 CREATE TABLE `et_ophouanaestheticsataudit_vitalsigns_oxygen_saturation_version` (
 	`id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-	`name` varchar(128) COLLATE utf8_bin NOT NULL,
+	`name` varchar(128) NOT NULL,
 	`display_order` int(10) unsigned NOT NULL DEFAULT '1',
 	`score` int(10) unsigned NOT NULL,
 	`last_modified_user_id` int(10) unsigned NOT NULL DEFAULT '1',
@@ -334,7 +334,7 @@ CREATE TABLE `et_ophouanaestheticsataudit_vitalsigns_oxygen_saturation_version` 
 	KEY `acv_phauanaestheticsataudit_vitalsigns_oxygen_saturation_cui_fk` (`created_user_id`),
 	CONSTRAINT `acv_phauanaestheticsataudit_vitalsigns_oxygen_saturation_lmui_fk` FOREIGN KEY (`last_modified_user_id`) REFERENCES `user` (`id`),
 	CONSTRAINT `acv_phauanaestheticsataudit_vitalsigns_oxygen_saturation_cui_fk` FOREIGN KEY (`created_user_id`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_bin
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci
 		");
 
 		$this->alterColumn('et_ophouanaestheticsataudit_vitalsigns_oxygen_saturation_version','id','int(10) unsigned NOT NULL');
@@ -352,7 +352,7 @@ CREATE TABLE `et_ophouanaestheticsataudit_vitalsigns_oxygen_saturation_version` 
 		$this->execute("
 CREATE TABLE `et_ophouanaestheticsataudit_vitalsigns_respiratory_rate_version` (
 	`id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-	`name` varchar(128) COLLATE utf8_bin NOT NULL,
+	`name` varchar(128) NOT NULL,
 	`display_order` int(10) unsigned NOT NULL DEFAULT '1',
 	`score` int(10) unsigned NOT NULL,
 	`last_modified_user_id` int(10) unsigned NOT NULL DEFAULT '1',
@@ -364,7 +364,7 @@ CREATE TABLE `et_ophouanaestheticsataudit_vitalsigns_respiratory_rate_version` (
 	KEY `acv_phauanaestheticsataudit_vitalsigns_respiratory_rate_cui_fk` (`created_user_id`),
 	CONSTRAINT `acv_phauanaestheticsataudit_vitalsigns_respiratory_rate_lmui_fk` FOREIGN KEY (`last_modified_user_id`) REFERENCES `user` (`id`),
 	CONSTRAINT `acv_phauanaestheticsataudit_vitalsigns_respiratory_rate_cui_fk` FOREIGN KEY (`created_user_id`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_bin
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci
 		");
 
 		$this->alterColumn('et_ophouanaestheticsataudit_vitalsigns_respiratory_rate_version','id','int(10) unsigned NOT NULL');
@@ -382,7 +382,7 @@ CREATE TABLE `et_ophouanaestheticsataudit_vitalsigns_respiratory_rate_version` (
 		$this->execute("
 CREATE TABLE `et_ophouanaestheticsataudit_vitalsigns_systolic_version` (
 	`id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-	`name` varchar(128) COLLATE utf8_bin NOT NULL,
+	`name` varchar(128) NOT NULL,
 	`display_order` int(10) unsigned NOT NULL DEFAULT '1',
 	`score` int(10) unsigned NOT NULL,
 	`last_modified_user_id` int(10) unsigned NOT NULL DEFAULT '1',
@@ -394,7 +394,7 @@ CREATE TABLE `et_ophouanaestheticsataudit_vitalsigns_systolic_version` (
 	KEY `acv_et_ophauanaestheticsataudit_vitalsigns_systolic_cui_fk` (`created_user_id`),
 	CONSTRAINT `acv_et_ophauanaestheticsataudit_vitalsigns_systolic_lmui_fk` FOREIGN KEY (`last_modified_user_id`) REFERENCES `user` (`id`),
 	CONSTRAINT `acv_et_ophauanaestheticsataudit_vitalsigns_systolic_cui_fk` FOREIGN KEY (`created_user_id`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_bin
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci
 		");
 
 		$this->alterColumn('et_ophouanaestheticsataudit_vitalsigns_systolic_version','id','int(10) unsigned NOT NULL');
