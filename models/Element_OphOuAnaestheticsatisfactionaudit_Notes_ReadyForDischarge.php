@@ -18,7 +18,7 @@
  */
 
 /**
- * This is the model class for table "et_auophanaestheticsataudit_notes_ready_for_discharge".
+ * This is the model class for table "auophanaestheticsataudit_notes_ready_for_discharge".
  *
  * The followings are the available columns in table:
  * @property string $id
@@ -49,7 +49,7 @@ class Element_OphOuAnaestheticsatisfactionaudit_Notes_ReadyForDischarge extends 
 	 */
 	public function tableName()
 	{
-		return 'et_ophouanaestheticsataudit_notes_ready_for_discharge';
+		return 'ophouanaestheticsataudit_notes_ready_for_discharge';
 	}
 
 	/**

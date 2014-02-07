@@ -28,6 +28,6 @@
 
 	<div class="element-fields">
 		<?php echo $form->textArea($element, 'comments', array(), false, array('placeholder' => 'Enter comments ...'))?>
-		<?php echo $form->radioButtons($element, 'ready_for_discharge_id', 'et_ophouanaestheticsataudit_notes_ready_for_discharge')?>
+		<?php echo $form->radioButtons($element, 'ready_for_discharge_id', 'ophouanaestheticsataudit_notes_ready_for_discharge')?>
 	</div>
 </section>
