@@ -18,7 +18,7 @@
  */
 
 /**
- * This is the model class for table "et_ophauanaestheticsataudit_vitalsigns_body_temp".
+ * This is the model class for table "ophauanaestheticsataudit_vitalsigns_body_temp".
  *
  * The followings are the available columns in table:
  * @property string $id
@@ -27,7 +27,7 @@
  *
  * The followings are the available model relations:
  *
- * @property Name $et_ophauanaestheticsataudit_vitalsigns
+ * @property Name $ophauanaestheticsataudit_vitalsigns
  * @property EventType $eventType
  * @property Event $event
  * @property User $user
@@ -50,7 +50,7 @@ class Element_OphOuAnaestheticsatisfactionaudit_VitalSigns_BodyTemp extends Base
 	 */
 	public function tableName()
 	{
-		return 'et_ophouanaestheticsataudit_vitalsigns_body_temp';
+		return 'ophouanaestheticsataudit_vitalsigns_body_temp';
 	}
 
 	/**

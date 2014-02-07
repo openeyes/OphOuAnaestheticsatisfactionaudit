@@ -49,7 +49,7 @@ class Element_OphOuAnaestheticsatisfactionaudit_VitalSigns_Systolic extends Base
 	 */
 	public function tableName()
 	{
-		return 'et_ophouanaestheticsataudit_vitalsigns_systolic';
+		return 'ophouanaestheticsataudit_vitalsigns_systolic';
 	}
 
 	/**

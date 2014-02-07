@@ -18,9 +18,9 @@
  */
 
 /**
- * This is the model class for table "et_ophauanaestheticsataudit_anaesthetist_lookup".
+ * This is the model class for table "ophauanaestheticsataudit_anaesthetist_lookup".
  *
- * The followings are the available columns in table 'et_ophauanaestheticsataudit_anaesthetist_lookup':
+ * The followings are the available columns in table 'ophauanaestheticsataudit_anaesthetist_lookup':
  * @property string $user_id
  * @property string $last_modified_user_id
  * @property string $last_modified_date
@@ -48,7 +48,7 @@ class OphOuAnaestheticsatisfactionaudit_AnaesthetistUser extends BaseActiveRecor
 	 */
 	public function tableName()
 	{
-		return 'et_ophouanaestheticsataudit_anaesthetist_lookup';
+		return 'ophouanaestheticsataudit_anaesthetist_lookup';
 	}
 
 	/**
