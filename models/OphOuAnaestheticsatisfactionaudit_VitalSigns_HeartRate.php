@@ -18,7 +18,7 @@
  */
 
 /**
- * This is the model class for table "element_type_oxygen_saturation".
+ * This is the model class for table "element_type_heart_rate".
  *
  * The followings are the available columns in table:
  * @property string $id
@@ -33,7 +33,7 @@
  * @property User $usermodified
  */
 
-class Element_OphOuAnaestheticsatisfactionaudit_VitalSigns_OxygenSaturation extends BaseActiveRecordVersionedSoftDelete
+class OphOuAnaestheticsatisfactionaudit_VitalSigns_HeartRate extends BaseActiveRecord
 {
 	/**
 	 * Returns the static model of the specified AR class.
@@ -49,7 +49,7 @@ class Element_OphOuAnaestheticsatisfactionaudit_VitalSigns_OxygenSaturation exte
 	 */
 	public function tableName()
 	{
-		return 'ophouanaestheticsataudit_vitalsigns_oxygen_saturation';
+		return 'ophouanaestheticsataudit_vitalsigns_heart_rate';
 	}
 
 	/**

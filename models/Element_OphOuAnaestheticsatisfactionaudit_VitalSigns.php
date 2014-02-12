@@ -31,12 +31,12 @@
  * @property Event $event
  * @property User $user
  * @property User $usermodified
- * @property Element_OphOuAnaestheticsatisfactionaudit_VitalSigns_RespiratoryRate respiratory_rate
- * @property Element_OphOuAnaestheticsatisfactionaudit_VitalSigns_OxygenSaturation oxygen_saturation
- * @property Element_OphOuAnaestheticsatisfactionaudit_VitalSigns_Systolic systolic
- * @property Element_OphOuAnaestheticsatisfactionaudit_VitalSigns_BodyTemp body_temp
- * @property Element_OphOuAnaestheticsatisfactionaudit_VitalSigns_HeartRate heart_rate
- * @property Element_OphOuAnaestheticsatisfactionaudit_VitalSigns_ConsciousLvl conscious_lvl
+ * @property OphOuAnaestheticsatisfactionaudit_VitalSigns_RespiratoryRate respiratory_rate
+ * @property OphOuAnaestheticsatisfactionaudit_VitalSigns_OxygenSaturation oxygen_saturation
+ * @property OphOuAnaestheticsatisfactionaudit_VitalSigns_Systolic systolic
+ * @property OphOuAnaestheticsatisfactionaudit_VitalSigns_BodyTemp body_temp
+ * @property OphOuAnaestheticsatisfactionaudit_VitalSigns_HeartRate heart_rate
+ * @property OphOuAnaestheticsatisfactionaudit_VitalSigns_ConsciousLvl conscious_lvl
  *
  */
 
@@ -91,12 +91,12 @@ class Element_OphOuAnaestheticsatisfactionaudit_VitalSigns extends BaseEventType
 			'event' => array(self::BELONGS_TO, 'Event', 'event_id'),
 			'user' => array(self::BELONGS_TO, 'User', 'created_user_id'),
 			'usermodified' => array(self::BELONGS_TO, 'User', 'last_modified_user_id'),
-			'respiratory_rate' => array(self::BELONGS_TO, 'Element_OphOuAnaestheticsatisfactionaudit_VitalSigns_RespiratoryRate', 'respiratory_rate_id'),
-			'oxygen_saturation' => array(self::BELONGS_TO, 'Element_OphOuAnaestheticsatisfactionaudit_VitalSigns_OxygenSaturation', 'oxygen_saturation_id'),
-			'systolic' => array(self::BELONGS_TO, 'Element_OphOuAnaestheticsatisfactionaudit_VitalSigns_Systolic', 'systolic_id'),
-			'body_temp' => array(self::BELONGS_TO, 'Element_OphOuAnaestheticsatisfactionaudit_VitalSigns_BodyTemp', 'body_temp_id'),
-			'heart_rate' => array(self::BELONGS_TO, 'Element_OphOuAnaestheticsatisfactionaudit_VitalSigns_HeartRate', 'heart_rate_id'),
-			'conscious_lvl' => array(self::BELONGS_TO, 'Element_OphOuAnaestheticsatisfactionaudit_VitalSigns_ConsciousLvl', 'conscious_lvl_id'),
+			'respiratory_rate' => array(self::BELONGS_TO, 'OphOuAnaestheticsatisfactionaudit_VitalSigns_RespiratoryRate', 'respiratory_rate_id'),
+			'oxygen_saturation' => array(self::BELONGS_TO, 'OphOuAnaestheticsatisfactionaudit_VitalSigns_OxygenSaturation', 'oxygen_saturation_id'),
+			'systolic' => array(self::BELONGS_TO, 'OphOuAnaestheticsatisfactionaudit_VitalSigns_Systolic', 'systolic_id'),
+			'body_temp' => array(self::BELONGS_TO, 'OphOuAnaestheticsatisfactionaudit_VitalSigns_BodyTemp', 'body_temp_id'),
+			'heart_rate' => array(self::BELONGS_TO, 'OphOuAnaestheticsatisfactionaudit_VitalSigns_HeartRate', 'heart_rate_id'),
+			'conscious_lvl' => array(self::BELONGS_TO, 'OphOuAnaestheticsatisfactionaudit_VitalSigns_ConsciousLvl', 'conscious_lvl_id'),
 		);
 	}
 

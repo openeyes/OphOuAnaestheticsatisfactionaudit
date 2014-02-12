@@ -18,22 +18,23 @@
  */
 
 /**
- * This is the model class for table "element_type_heart_rate".
+ * This is the model class for table "ophauanaestheticsataudit_vitalsigns_body_temp".
  *
  * The followings are the available columns in table:
  * @property string $id
  * @property string $name
+ * @property string $score
  *
  * The followings are the available model relations:
  *
- * @property ElementType $element_type
+ * @property Name $ophauanaestheticsataudit_vitalsigns
  * @property EventType $eventType
  * @property Event $event
  * @property User $user
  * @property User $usermodified
  */
 
-class Element_OphOuAnaestheticsatisfactionaudit_VitalSigns_HeartRate extends BaseActiveRecordVersionedSoftDelete
+class OphOuAnaestheticsatisfactionaudit_VitalSigns_BodyTemp extends BaseActiveRecord
 {
 	/**
 	 * Returns the static model of the specified AR class.
@@ -49,7 +50,7 @@ class Element_OphOuAnaestheticsatisfactionaudit_VitalSigns_HeartRate extends Bas
 	 */
 	public function tableName()
 	{
-		return 'ophouanaestheticsataudit_vitalsigns_heart_rate';
+		return 'ophouanaestheticsataudit_vitalsigns_body_temp';
 	}
 
 	/**
@@ -76,6 +77,7 @@ class Element_OphOuAnaestheticsatisfactionaudit_VitalSigns_HeartRate extends Bas
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+			'event' => array(self::BELONGS_TO, 'Event', 'event_id'),
 			'user' => array(self::BELONGS_TO, 'User', 'created_user_id'),
 			'usermodified' => array(self::BELONGS_TO, 'User', 'last_modified_user_id'),
 		);
