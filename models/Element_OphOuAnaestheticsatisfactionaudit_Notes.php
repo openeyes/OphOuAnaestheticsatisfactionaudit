@@ -33,7 +33,7 @@
  * @property Event $event
  * @property User $user
  * @property User $usermodified
- * @property Element_OphOuAnaestheticsatisfactionaudit_Notes_ReadyForDischarge $ready_for_discharge
+ * @property OphOuAnaestheticsatisfactionaudit_Notes_ReadyForDischarge $ready_for_discharge
  */
 
 class Element_OphOuAnaestheticsatisfactionaudit_Notes extends BaseEventTypeElement
@@ -86,7 +86,7 @@ class Element_OphOuAnaestheticsatisfactionaudit_Notes extends BaseEventTypeEleme
 			'event' => array(self::BELONGS_TO, 'Event', 'event_id'),
 			'user' => array(self::BELONGS_TO, 'User', 'created_user_id'),
 			'usermodified' => array(self::BELONGS_TO, 'User', 'last_modified_user_id'),
-			'ready_for_discharge' => array(self::BELONGS_TO, 'Element_OphOuAnaestheticsatisfactionaudit_Notes_ReadyForDischarge', 'ready_for_discharge_id'),
+			'ready_for_discharge' => array(self::BELONGS_TO, 'OphOuAnaestheticsatisfactionaudit_Notes_ReadyForDischarge', 'ready_for_discharge_id'),
 		);
 	}
 
