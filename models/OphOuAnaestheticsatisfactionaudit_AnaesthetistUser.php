@@ -48,7 +48,7 @@ class OphOuAnaestheticsatisfactionaudit_AnaesthetistUser extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'et_ophouanaestheticsataudit_anaesthetist_lookup';
+		return 'ophouanaestheticsataudit_anaesthetist_lookup';
 	}
 
 	/**

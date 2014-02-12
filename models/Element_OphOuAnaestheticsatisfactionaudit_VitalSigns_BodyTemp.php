@@ -50,7 +50,7 @@ class Element_OphOuAnaestheticsatisfactionaudit_VitalSigns_BodyTemp extends Base
 	 */
 	public function tableName()
 	{
-		return 'et_ophouanaestheticsataudit_vitalsigns_body_temp';
+		return 'ophouanaestheticsataudit_vitalsigns_body_temp';
 	}
 
 	/**

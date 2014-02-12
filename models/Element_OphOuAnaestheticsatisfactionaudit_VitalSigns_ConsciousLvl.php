@@ -49,7 +49,7 @@ class Element_OphOuAnaestheticsatisfactionaudit_VitalSigns_ConsciousLvl extends 
 	 */
 	public function tableName()
 	{
-		return 'et_ophouanaestheticsataudit_vitalsigns_conscious_lvl';
+		return 'ophouanaestheticsataudit_vitalsigns_conscious_lvl';
 	}
 
 	/**

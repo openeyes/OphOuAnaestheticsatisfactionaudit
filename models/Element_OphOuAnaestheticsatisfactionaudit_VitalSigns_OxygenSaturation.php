@@ -49,7 +49,7 @@ class Element_OphOuAnaestheticsatisfactionaudit_VitalSigns_OxygenSaturation exte
 	 */
 	public function tableName()
 	{
-		return 'et_ophouanaestheticsataudit_vitalsigns_oxygen_saturation';
+		return 'ophouanaestheticsataudit_vitalsigns_oxygen_saturation';
 	}
 
 	/**

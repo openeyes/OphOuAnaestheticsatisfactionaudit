@@ -49,7 +49,7 @@ class Element_OphOuAnaestheticsatisfactionaudit_VitalSigns_HeartRate extends Bas
 	 */
 	public function tableName()
 	{
-		return 'et_ophouanaestheticsataudit_vitalsigns_heart_rate';
+		return 'ophouanaestheticsataudit_vitalsigns_heart_rate';
 	}
 
 	/**

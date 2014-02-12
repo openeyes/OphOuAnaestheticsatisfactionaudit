@@ -49,7 +49,7 @@ class Element_OphOuAnaestheticsatisfactionaudit_Notes_ReadyForDischarge extends 
 	 */
 	public function tableName()
 	{
-		return 'et_ophouanaestheticsataudit_notes_ready_for_discharge';
+		return 'ophouanaestheticsataudit_notes_ready_for_discharge';
 	}
 
 	/**

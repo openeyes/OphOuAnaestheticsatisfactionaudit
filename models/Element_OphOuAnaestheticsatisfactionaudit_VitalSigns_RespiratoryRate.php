@@ -49,7 +49,7 @@ class Element_OphOuAnaestheticsatisfactionaudit_VitalSigns_RespiratoryRate exten
 	 */
 	public function tableName()
 	{
-		return 'et_ophouanaestheticsataudit_vitalsigns_respiratory_rate';
+		return 'ophouanaestheticsataudit_vitalsigns_respiratory_rate';
 	}
 
 	/**
