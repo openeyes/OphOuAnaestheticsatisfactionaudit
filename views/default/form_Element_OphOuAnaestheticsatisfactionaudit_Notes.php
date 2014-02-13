@@ -28,6 +28,6 @@
 
 	<div class="element-fields">
 		<?php echo $form->textArea($element, 'comments', array(), false, array('placeholder' => 'Enter comments ...'))?>
-		<?php echo $form->radioButtons($element, 'ready_for_discharge_id', 'ophouanaestheticsataudit_notes_ready_for_discharge')?>
+		<?php echo $form->radioButtons($element, 'ready_for_discharge_id', CHtml::listData(OphOuAnaestheticsatisfactionaudit_Notes_ReadyForDischarge::model()->findAll(array('order'=>'display_order asc')),'id','name'))?>
 	</div>
 </section>
