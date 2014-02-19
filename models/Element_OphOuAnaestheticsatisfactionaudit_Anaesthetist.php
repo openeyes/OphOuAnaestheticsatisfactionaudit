@@ -125,14 +125,14 @@ class Element_OphOuAnaestheticsatisfactionaudit_Anaesthetist extends BaseEventTy
 		);
 	}
 
-	public function anaesthetistSelectList()
+	public function anaesthetistSelectList($selected_id)
 	{
 		$anaesthetistList = array(
 				array('id' => self::NONCONSULTANT, 'text' => self::NONCONSULTANT_DISP),
 				array('id' => self::NOANAESTHETIST, 'text' => self::NOANAESTHETIST_DISP),
 		);
 
-		foreach (OphOuAnaestheticsatisfactionaudit_AnaesthetistUser::model()->findAll() as $anaesthetist) {
+		foreach (OphOuAnaestheticsatisfactionaudit_AnaesthetistUser::model()->activeOrPk($selected_id)->findAll() as $anaesthetist) {
 			$anaesthetistList[] = array('id' => $anaesthetist->user->id, 'text' => $anaesthetist->user->fullNameAndTitle);
 		}
 
