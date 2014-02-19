@@ -17,21 +17,11 @@
  * @license http://www.gnu.org/licenses/gpl-3.0.html The GNU General Public License V3.0
  */
 ?>
-<section class="element <?php echo $element->elementType->class_name?>"
-	data-element-type-id="<?php echo $element->elementType->id?>"
-	data-element-type-class="<?php echo $element->elementType->class_name?>"
-	data-element-type-name="<?php echo $element->elementType->name?>"
-	data-element-display-order="<?php echo $element->elementType->display_order?>">
-	<header class="element-header">
-		<h3 class="element-title"><?php echo $element->elementType->name; ?></h3>
-	</header>
-
-	<div class="element-fields">
-		<?php echo $form->dropDownList($element, 'respiratory_rate_id', CHtml::listData(OphOuAnaestheticsatisfactionaudit_VitalSigns_RespiratoryRate::model()->notDeletedOrPk($element->respiratory_rate_id)->findAll(array('order'=> 'display_order asc')),'id','name'),array('empty'=>'- Select -'),false,array('field'=>3))?>
-		<?php echo $form->dropDownList($element, 'oxygen_saturation_id', CHtml::listData(OphOuAnaestheticsatisfactionaudit_VitalSigns_OxygenSaturation::model()->notDeletedOrPk($element->oxygen_saturation_id)->findAll(array('order'=> 'display_order asc')),'id','name'),array('empty'=>'- Select -'),false,array('field'=>3))?>
-		<?php echo $form->dropDownList($element, 'systolic_id', CHtml::listData(OphOuAnaestheticsatisfactionaudit_VitalSigns_Systolic::model()->notDeletedOrPk($element->systolic_id)->findAll(array('order'=> 'display_order asc')),'id','name'),array('empty'=>'- Select -'),false,array('field'=>3))?>
-		<?php echo $form->dropDownList($element, 'body_temp_id', CHtml::listData(OphOuAnaestheticsatisfactionaudit_VitalSigns_BodyTemp::model()->notDeletedOrPk($element->body_temp_id)->findAll(array('order'=> 'display_order asc')),'id','name'),array('empty'=>'- Select -'),false,array('field'=>3))?>
-		<?php echo $form->dropDownList($element, 'heart_rate_id', CHtml::listData(OphOuAnaestheticsatisfactionaudit_VitalSigns_HeartRate::model()->notDeletedOrPk($element->heart_rate_id)->findAll(array('order'=> 'display_order asc')),'id','name'),array('empty'=>'- Select -'),false,array('field'=>3))?>
-		<?php echo $form->dropDownList($element, 'conscious_lvl_id', CHtml::listData(OphOuAnaestheticsatisfactionaudit_VitalSigns_ConsciousLvl::model()->notDeletedOrPk($element->conscious_lvl_id)->findAll(array('order'=> 'display_order asc')),'id','name'),array('empty'=>'- Select -'),false,array('field'=>3))?>
-	</div>
-</section>
+<div class="element-fields">
+	<?php echo $form->dropDownList($element, 'respiratory_rate_id', CHtml::listData(OphOuAnaestheticsatisfactionaudit_VitalSigns_RespiratoryRate::model()->notDeletedOrPk($element->respiratory_rate_id)->findAll(array('order'=> 'display_order asc')),'id','name'),array('empty'=>'- Select -'),false,array('field'=>3))?>
+	<?php echo $form->dropDownList($element, 'oxygen_saturation_id', CHtml::listData(OphOuAnaestheticsatisfactionaudit_VitalSigns_OxygenSaturation::model()->notDeletedOrPk($element->oxygen_saturation_id)->findAll(array('order'=> 'display_order asc')),'id','name'),array('empty'=>'- Select -'),false,array('field'=>3))?>
+	<?php echo $form->dropDownList($element, 'systolic_id', CHtml::listData(OphOuAnaestheticsatisfactionaudit_VitalSigns_Systolic::model()->notDeletedOrPk($element->systolic_id)->findAll(array('order'=> 'display_order asc')),'id','name'),array('empty'=>'- Select -'),false,array('field'=>3))?>
+	<?php echo $form->dropDownList($element, 'body_temp_id', CHtml::listData(OphOuAnaestheticsatisfactionaudit_VitalSigns_BodyTemp::model()->notDeletedOrPk($element->body_temp_id)->findAll(array('order'=> 'display_order asc')),'id','name'),array('empty'=>'- Select -'),false,array('field'=>3))?>
+	<?php echo $form->dropDownList($element, 'heart_rate_id', CHtml::listData(OphOuAnaestheticsatisfactionaudit_VitalSigns_HeartRate::model()->notDeletedOrPk($element->heart_rate_id)->findAll(array('order'=> 'display_order asc')),'id','name'),array('empty'=>'- Select -'),false,array('field'=>3))?>
+	<?php echo $form->dropDownList($element, 'conscious_lvl_id', CHtml::listData(OphOuAnaestheticsatisfactionaudit_VitalSigns_ConsciousLvl::model()->notDeletedOrPk($element->conscious_lvl_id)->findAll(array('order'=> 'display_order asc')),'id','name'),array('empty'=>'- Select -'),false,array('field'=>3))?>
+</div>

@@ -17,29 +17,23 @@
  * @license http://www.gnu.org/licenses/gpl-3.0.html The GNU General Public License V3.0
  */
 ?>
-
-<section class="element">
-	<header class="element-header">
-		<h3 class="element-title"><?php  echo $element->elementType->name ?></h3>
-	</header>
-	<div class="element-data">
-		<?php if ($element->comments) {?>
-			<div class="row data-row">
-				<div class="large-2 column">
-					<div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('comments'))?></div>
-				</div>
-				<div class="large-10 column">
-					<div class="data-value"><?php echo Yii::app()->format->Ntext($element->comments)?></div>
-				</div>
-			</div>
-		<?php }?>
+<div class="element-data">
+	<?php if ($element->comments) {?>
 		<div class="row data-row">
 			<div class="large-2 column">
-				<div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('ready_for_discharge_id'))?></div>
+				<div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('comments'))?></div>
 			</div>
 			<div class="large-10 column">
-				<div class="data-value"><?php echo $element->ready_for_discharge ? $element->ready_for_discharge->name : 'None'?></div>
+				<div class="data-value"><?php echo Yii::app()->format->Ntext($element->comments)?></div>
 			</div>
 		</div>
+	<?php }?>
+	<div class="row data-row">
+		<div class="large-2 column">
+			<div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('ready_for_discharge_id'))?></div>
+		</div>
+		<div class="large-10 column">
+			<div class="data-value"><?php echo $element->ready_for_discharge ? $element->ready_for_discharge->name : 'None'?></div>
+		</div>
 	</div>
-</section>
+</div>
