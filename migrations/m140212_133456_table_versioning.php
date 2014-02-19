@@ -138,6 +138,7 @@ CREATE TABLE `ophouanaestheticsataudit_notes_ready_for_discharge_version` (
 		$this->dropPrimaryKey('id','ophouanaestheticsataudit_notes_ready_for_discharge_version');
 
 		$this->createIndex('ophouanaestheticsataudit_notes_ready_for_discharge_aid_fk','ophouanaestheticsataudit_notes_ready_for_discharge_version','id');
+		$this->addForeignKey('ophouanaestheticsataudit_notes_ready_for_discharge_aid_fk','ophouanaestheticsataudit_notes_ready_for_discharge_version','id','ophouanaestheticsataudit_notes_ready_for_discharge','id');
 
 		$this->addColumn('ophouanaestheticsataudit_notes_ready_for_discharge_version','version_date',"datetime not null default '1900-01-01 00:00:00'");
 
@@ -406,6 +407,8 @@ CREATE TABLE `ophouanaestheticsataudit_vitalsigns_systolic_version` (
 
 		$this->addColumn('ophouanaestheticsataudit_anaesthetist_lookup','deleted','tinyint(1) unsigned not null');
 		$this->addColumn('ophouanaestheticsataudit_anaesthetist_lookup_version','deleted','tinyint(1) unsigned not null');
+		$this->addColumn('ophouanaestheticsataudit_notes_ready_for_discharge','deleted','tinyint(1) unsigned not null');
+		$this->addColumn('ophouanaestheticsataudit_notes_ready_for_discharge_version','deleted','tinyint(1) unsigned not null');
 		$this->addColumn('ophouanaestheticsataudit_vitalsigns_body_temp','deleted','tinyint(1) unsigned not null');
 		$this->addColumn('ophouanaestheticsataudit_vitalsigns_body_temp_version','deleted','tinyint(1) unsigned not null');
 		$this->addColumn('ophouanaestheticsataudit_vitalsigns_conscious_lvl','deleted','tinyint(1) unsigned not null');
@@ -423,6 +426,7 @@ CREATE TABLE `ophouanaestheticsataudit_vitalsigns_systolic_version` (
 	public function down()
 	{
 		$this->dropColumn('ophouanaestheticsataudit_anaesthetist_lookup','deleted');
+		$this->dropColumn('ophouanaestheticsataudit_notes_ready_for_discharge_version','deleted');
 		$this->dropColumn('ophouanaestheticsataudit_vitalsigns_body_temp','deleted');
 		$this->dropColumn('ophouanaestheticsataudit_vitalsigns_conscious_lvl','deleted');
 		$this->dropColumn('ophouanaestheticsataudit_vitalsigns_heart_rate','deleted');
