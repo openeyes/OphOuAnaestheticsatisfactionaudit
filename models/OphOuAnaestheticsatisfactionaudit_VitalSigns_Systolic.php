@@ -33,7 +33,7 @@
  * @property User $usermodified
  */
 
-class OphOuAnaestheticsatisfactionaudit_VitalSigns_Systolic extends BaseActiveRecord
+class OphOuAnaestheticsatisfactionaudit_VitalSigns_Systolic extends BaseActiveRecordVersionedSoftDelete
 {
 	/**
 	 * Returns the static model of the specified AR class.

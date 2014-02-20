@@ -34,7 +34,7 @@
  * @property User $usermodified
  */
 
-class OphOuAnaestheticsatisfactionaudit_VitalSigns_BodyTemp extends BaseActiveRecord
+class OphOuAnaestheticsatisfactionaudit_VitalSigns_BodyTemp extends BaseActiveRecordVersionedSoftDelete
 {
 	/**
 	 * Returns the static model of the specified AR class.

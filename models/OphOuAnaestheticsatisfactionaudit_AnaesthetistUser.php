@@ -32,7 +32,7 @@
  * @property User $lastModifiedUser
  * @property User $user
  */
-class OphOuAnaestheticsatisfactionaudit_AnaesthetistUser extends BaseActiveRecordVersioned
+class OphOuAnaestheticsatisfactionaudit_AnaesthetistUser extends BaseActiveRecordVersionedSoftDelete
 {
 	/**
 	 * Returns the static model of the specified AR class.
