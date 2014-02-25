@@ -17,35 +17,29 @@
  * @license http://www.gnu.org/licenses/gpl-3.0.html The GNU General Public License V3.0
  */
 ?>
-
-<section class="element">
-	<header class="element-header">
-		<h3 class="element-title"><?php echo $element->elementType->name?></h3>
-	</header>
-	<div class="element-data">
-		<div class="row data-row">
-			<div class="large-2 column">
-				<div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('pain'))?></div>
-			</div>
-			<div class="large-10 column">
-				<div class="data-value"><?php echo $element->pain?></div>
-			</div>
+<div class="element-data">
+	<div class="row data-row">
+		<div class="large-2 column">
+			<div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('pain'))?></div>
 		</div>
-		<div class="row data-row">
-			<div class="large-2 column">
-				<div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('nausea'))?></div>
-			</div>
-			<div class="large-10 column">
-				<div class="data-value"><?php echo $element->nausea?></div>
-			</div>
-		</div>
-		<div class="row data-row">
-			<div class="large-2 column">
-				<div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('vomited'))?></div>
-			</div>
-			<div class="large-10 column">
-				<div class="data-value"><?php echo $element->vomited ? 'Yes' : 'No'?></div>
-			</div>
+		<div class="large-10 column">
+			<div class="data-value"><?php echo $element->pain?></div>
 		</div>
 	</div>
-</section>
+	<div class="row data-row">
+		<div class="large-2 column">
+			<div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('nausea'))?></div>
+		</div>
+		<div class="large-10 column">
+			<div class="data-value"><?php echo $element->nausea?></div>
+		</div>
+	</div>
+	<div class="row data-row">
+		<div class="large-2 column">
+			<div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('vomited'))?></div>
+		</div>
+		<div class="large-10 column">
+			<div class="data-value"><?php echo $element->vomited ? 'Yes' : 'No'?></div>
+		</div>
+	</div>
+</div>
