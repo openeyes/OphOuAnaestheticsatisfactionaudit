@@ -33,7 +33,7 @@
  * @property User $usermodified
  */
 
-class OphOuAnaestheticsatisfactionaudit_Notes_ReadyForDischarge extends BaseActiveRecordVersionedSoftDelete
+class OphOuAnaestheticsatisfactionaudit_Notes_ReadyForDischarge extends BaseActiveRecordVersioned
 {
 	/**
 	 * Returns the static model of the specified AR class.
@@ -50,6 +50,11 @@ class OphOuAnaestheticsatisfactionaudit_Notes_ReadyForDischarge extends BaseActi
 	public function tableName()
 	{
 		return 'ophouanaestheticsataudit_notes_ready_for_discharge';
+	}
+
+	public function defaultScope()
+	{
+		return array('order' => $this->getTableAlias(true, false) . '.display_order');
 	}
 
 	/**
@@ -112,27 +117,5 @@ class OphOuAnaestheticsatisfactionaudit_Notes_ReadyForDischarge extends BaseActi
 		return new CActiveDataProvider(get_class($this), array(
 				'criteria' => $criteria,
 			));
-	}
-
-	/**
-	 * Set default values for forms on create
-	 */
-	public function setDefaultOptions()
-	{
-	}
-
-	protected function beforeSave()
-	{
-		return parent::beforeSave();
-	}
-
-	protected function afterSave()
-	{
-		return parent::afterSave();
-	}
-
-	protected function beforeValidate()
-	{
-		return parent::beforeValidate();
 	}
 }

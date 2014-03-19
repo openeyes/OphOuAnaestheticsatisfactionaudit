@@ -19,5 +19,5 @@
 ?>
 <div class="element-fields">
 	<?php echo $form->textArea($element, 'comments', array(), false, array('placeholder' => 'Enter comments ...'))?>
-	<?php echo $form->radioButtons($element, 'ready_for_discharge_id', CHtml::listData(OphOuAnaestheticsatisfactionaudit_Notes_ReadyForDischarge::model()->notDeletedOrPk($element->ready_for_discharge_id)->findAll(array('order'=>'display_order asc')),'id','name'))?>
+	<?php echo $form->radioButtons($element, 'ready_for_discharge_id', 'OphOuAnaestheticsatisfactionaudit_Notes_ReadyForDischarge')?>
 </div>

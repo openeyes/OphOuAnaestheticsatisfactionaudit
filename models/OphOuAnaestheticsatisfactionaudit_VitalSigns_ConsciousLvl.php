@@ -33,7 +33,7 @@
  * @property User $usermodified
  */
 
-class OphOuAnaestheticsatisfactionaudit_VitalSigns_ConsciousLvl extends BaseActiveRecordVersionedSoftDelete
+class OphOuAnaestheticsatisfactionaudit_VitalSigns_ConsciousLvl extends BaseActiveRecordVersioned
 {
 	/**
 	 * Returns the static model of the specified AR class.
@@ -50,6 +50,11 @@ class OphOuAnaestheticsatisfactionaudit_VitalSigns_ConsciousLvl extends BaseActi
 	public function tableName()
 	{
 		return 'ophouanaestheticsataudit_vitalsigns_conscious_lvl';
+	}
+
+	public function defaultScope()
+	{
+		return array('order' => $this->getTableAlias(true, false) . '.display_order');
 	}
 
 	/**
