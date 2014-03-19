@@ -33,7 +33,7 @@
  * @property User $usermodified
  */
 
-class OphOuAnaestheticsatisfactionaudit_VitalSigns_Systolic extends BaseActiveRecordVersionedSoftDelete
+class OphOuAnaestheticsatisfactionaudit_VitalSigns_Systolic extends BaseActiveRecordVersioned
 {
 	/**
 	 * Returns the static model of the specified AR class.
@@ -50,6 +50,11 @@ class OphOuAnaestheticsatisfactionaudit_VitalSigns_Systolic extends BaseActiveRe
 	public function tableName()
 	{
 		return 'ophouanaestheticsataudit_vitalsigns_systolic';
+	}
+
+	public function defaultScope()
+	{
+		return array('order' => $this->getTableAlias(true, false) . '.display_order');
 	}
 
 	/**

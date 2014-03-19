@@ -32,7 +32,7 @@
  * @property User $lastModifiedUser
  * @property User $user
  */
-class OphOuAnaestheticsatisfactionaudit_AnaesthetistUser extends BaseActiveRecordVersionedSoftDelete
+class OphOuAnaestheticsatisfactionaudit_AnaesthetistUser extends BaseActiveRecordVersioned
 {
 	/**
 	 * Returns the static model of the specified AR class.
@@ -49,6 +49,13 @@ class OphOuAnaestheticsatisfactionaudit_AnaesthetistUser extends BaseActiveRecor
 	public function tableName()
 	{
 		return 'ophouanaestheticsataudit_anaesthetist_lookup';
+	}
+
+	public function defaultScope()
+	{
+		return array(
+			'with' => 'user'
+		);
 	}
 
 	/**
@@ -94,6 +101,18 @@ class OphOuAnaestheticsatisfactionaudit_AnaesthetistUser extends BaseActiveRecor
 			'created_user_id' => 'Created User',
 			'created_date' => 'Created Date',
 		);
+	}
+
+	/**
+	 * Named scope to limit to active users
+	 */
+	public function activeOrPk($id)
+	{
+		$criteria = new CDbCriteria;
+		$criteria->compare('user.active', true);
+		$criteria->compare($this->getTableAlias(true) . "." . $this->metadata->tableSchema->primaryKey, $id, false, 'OR');
+		$this->dbCriteria->mergeWith($criteria);
+		return $this;
 	}
 
 	/**
