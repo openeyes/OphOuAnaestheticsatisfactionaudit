@@ -18,10 +18,10 @@
  */
 ?>
 <div class="element-fields">
-	<?php echo $form->dropDownList($element, 'respiratory_rate_id', CHtml::listData(OphOuAnaestheticsatisfactionaudit_VitalSigns_RespiratoryRate::model()->notDeletedOrPk($element->respiratory_rate_id)->findAll(array('order'=> 'display_order asc')),'id','name'),array('empty'=>'- Select -'),false,array('field'=>3))?>
-	<?php echo $form->dropDownList($element, 'oxygen_saturation_id', CHtml::listData(OphOuAnaestheticsatisfactionaudit_VitalSigns_OxygenSaturation::model()->notDeletedOrPk($element->oxygen_saturation_id)->findAll(array('order'=> 'display_order asc')),'id','name'),array('empty'=>'- Select -'),false,array('field'=>3))?>
-	<?php echo $form->dropDownList($element, 'systolic_id', CHtml::listData(OphOuAnaestheticsatisfactionaudit_VitalSigns_Systolic::model()->notDeletedOrPk($element->systolic_id)->findAll(array('order'=> 'display_order asc')),'id','name'),array('empty'=>'- Select -'),false,array('field'=>3))?>
-	<?php echo $form->dropDownList($element, 'body_temp_id', CHtml::listData(OphOuAnaestheticsatisfactionaudit_VitalSigns_BodyTemp::model()->notDeletedOrPk($element->body_temp_id)->findAll(array('order'=> 'display_order asc')),'id','name'),array('empty'=>'- Select -'),false,array('field'=>3))?>
-	<?php echo $form->dropDownList($element, 'heart_rate_id', CHtml::listData(OphOuAnaestheticsatisfactionaudit_VitalSigns_HeartRate::model()->notDeletedOrPk($element->heart_rate_id)->findAll(array('order'=> 'display_order asc')),'id','name'),array('empty'=>'- Select -'),false,array('field'=>3))?>
-	<?php echo $form->dropDownList($element, 'conscious_lvl_id', CHtml::listData(OphOuAnaestheticsatisfactionaudit_VitalSigns_ConsciousLvl::model()->notDeletedOrPk($element->conscious_lvl_id)->findAll(array('order'=> 'display_order asc')),'id','name'),array('empty'=>'- Select -'),false,array('field'=>3))?>
+	<?php echo $form->dropDownList($element, 'respiratory_rate_id', 'OphOuAnaestheticsatisfactionaudit_VitalSigns_RespiratoryRate',array('empty'=>'- Select -'),false,array('field'=>3))?>
+	<?php echo $form->dropDownList($element, 'oxygen_saturation_id', 'OphOuAnaestheticsatisfactionaudit_VitalSigns_OxygenSaturation',array('empty'=>'- Select -'),false,array('field'=>3))?>
+	<?php echo $form->dropDownList($element, 'systolic_id', 'OphOuAnaestheticsatisfactionaudit_VitalSigns_Systolic',array('empty'=>'- Select -'),false,array('field'=>3))?>
+	<?php echo $form->dropDownList($element, 'body_temp_id', 'OphOuAnaestheticsatisfactionaudit_VitalSigns_BodyTemp',array('empty'=>'- Select -'),false,array('field'=>3))?>
+	<?php echo $form->dropDownList($element, 'heart_rate_id', 'OphOuAnaestheticsatisfactionaudit_VitalSigns_HeartRate',array('empty'=>'- Select -'),false,array('field'=>3))?>
+	<?php echo $form->dropDownList($element, 'conscious_lvl_id', 'OphOuAnaestheticsatisfactionaudit_VitalSigns_ConsciousLvl',array('empty'=>'- Select -'),false,array('field'=>3))?>
 </div>
