@@ -1,5 +1,5 @@
 {
-  "name": "openeyes/oph-ou-anaesthetic-satisfaction-audit",
+  "name": "openeyes/oph-ou-anaestheticsatisfactionaudit",
   "description": "Module for auditing Anaesthetic Satisfaction in OpenEyes",
   "type": "openeyes-module",
   "require": {
