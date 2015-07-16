@@ -18,7 +18,8 @@
  */
 ?>
 <div class="element-data">
-	<?php if ($element->comments) {?>
+	<?php if ($element->comments) {
+    ?>
 		<div class="row data-row">
 			<div class="large-2 column">
 				<div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('comments'))?></div>
@@ -27,7 +28,8 @@
 				<div class="data-value"><?php echo Yii::app()->format->Ntext($element->comments)?></div>
 			</div>
 		</div>
-	<?php }?>
+	<?php 
+}?>
 	<div class="row data-row">
 		<div class="large-2 column">
 			<div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('ready_for_discharge_id'))?></div>

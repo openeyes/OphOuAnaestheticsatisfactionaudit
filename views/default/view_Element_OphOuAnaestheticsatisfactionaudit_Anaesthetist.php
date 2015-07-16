@@ -23,7 +23,13 @@
 			<div class="data-label"><?php echo CHtml::encode($element->getAttributeLabel('anaesthetist_id'))?></div>
 		</div>
 		<div class="large-10 column">
-			<div class="data-value"><?php if ($element->anaesthetist) { echo $element->anaesthetist->fullNameAndTitle; } elseif ($element->non_consultant) { echo $element::NONCONSULTANT_DISP; } else { echo $element::NOANAESTHETIST_DISP; } ?></div>
+			<div class="data-value"><?php if ($element->anaesthetist) {
+    echo $element->anaesthetist->fullNameAndTitle;
+} elseif ($element->non_consultant) {
+    echo $element::NONCONSULTANT_DISP;
+} else {
+    echo $element::NOANAESTHETIST_DISP;
+} ?></div>
 		</div>
 	</div>
 </div>

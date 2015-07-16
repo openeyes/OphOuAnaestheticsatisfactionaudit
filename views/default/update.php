@@ -20,21 +20,21 @@
 
 <?php $this->beginContent('//patient/event_container'); ?>
 	<?php
-		$this->breadcrumbs=array($this->module->id);
-		$this->event_actions[] = EventAction::button('Save', 'save', array('level' => 'save'), array('form'=>'anaesthetic-update'));
-	?>
+        $this->breadcrumbs=array($this->module->id);
+        $this->event_actions[] = EventAction::button('Save', 'save', array('level' => 'save'), array('form'=>'anaesthetic-update'));
+    ?>
 
 	<?php $this->renderPartial('//base/_messages'); ?>
 
 	<?php $form = $this->beginWidget('BaseEventTypeCActiveForm', array(
-		'id'=>'anaesthetic-update',
-		'enableAjaxValidation'=>false,
-		'layoutColumns' => array(
-			'label' => 2,
-			'field' => 10
-		)
-	));
-	?>
+        'id'=>'anaesthetic-update',
+        'enableAjaxValidation'=>false,
+        'layoutColumns' => array(
+            'label' => 2,
+            'field' => 10
+        )
+    ));
+    ?>
 		<?php $this->displayErrors($errors)?>
 		<?php $this->renderOpenElements($this->action->id, $form)?>
 		<?php $this->renderOptionalElements($this->action->id, $form)?>
